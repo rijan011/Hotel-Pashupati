@@ -509,7 +509,7 @@ function closeBookingModal() {
   }
 }
 
-function submitBookingModal(e) {
+async function submitBookingModal(e) {
   if (e) e.preventDefault();
 
   const name = document.getElementById('popup-guest-name')?.value || 'Guest';
@@ -522,7 +522,45 @@ function submitBookingModal(e) {
 
   const refId = 'HP-' + Math.floor(100000 + Math.random() * 900000);
 
-  // Construct WhatsApp text
+  // Show loading indicator on submit button
+  const submitBtn = e?.target?.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending Booking to Hotel...';
+  }
+
+  // Submit to Formspree AJAX endpoint
+  const formData = new FormData();
+  formData.append('Reference_ID', refId);
+  formData.append('Guest_Name', name);
+  formData.append('Phone_WhatsApp', phone);
+  formData.append('Service_Category', service);
+  formData.append('Check_In_Date', checkin);
+  formData.append('Check_Out_Date', checkout);
+  formData.append('Guests', guests);
+  formData.append('Special_Requests', notes);
+
+  try {
+    const res = await fetch('https://formspree.io/f/xlgqkdqj', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (res.ok) {
+      if (typeof showToast === 'function') {
+        showToast('Booking request sent directly to Hotel Pashupati!');
+      }
+    } else {
+      console.warn('Formspree response warning:', res.status);
+    }
+  } catch (err) {
+    console.error('Formspree submission error:', err);
+  }
+
+  // Construct WhatsApp text for optional instant chat
   const message = `*NEW BOOKING REQUEST - HOTEL PASHUPATI*%0A` +
     `*Ref ID:* ${refId}%0A` +
     `*Guest Name:* ${encodeURIComponent(name)}%0A` +
@@ -539,15 +577,15 @@ function submitBookingModal(e) {
     modalBody.innerHTML = `
       <div class="booking-success-card">
         <div class="booking-success-icon">✓</div>
-        <h4 style="font-family:var(--font-heading); font-size:1.4rem; color:#D4AF37; margin-bottom:8px;">Booking Request Generated!</h4>
+        <h4 style="font-family:var(--font-heading); font-size:1.4rem; color:#D4AF37; margin-bottom:8px;">Booking Request Sent!</h4>
         <p style="font-size:0.9rem; color:#d4d4d8; margin-bottom:16px;">Reference Code: <strong style="color:#FFF; background:rgba(212,175,55,0.2); padding:2px 8px; border-radius:4px;">${refId}</strong></p>
-        <p style="font-size:0.86rem; color:#a1a1aa; line-height:1.5; margin-bottom:24px;">Opening WhatsApp to send your booking directly to Hotel Pashupati front desk (+977 9855085204)...</p>
+        <p style="font-size:0.86rem; color:#a1a1aa; line-height:1.5; margin-bottom:24px;">Your booking has been received by Hotel Pashupati management. You can also chat directly on WhatsApp to confirm instantly.</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="https://wa.me/9779855085204?text=${message}" target="_blank" class="btn-whatsapp-submit" style="text-decoration:none;">
-            Open WhatsApp Now
+            💬 Open WhatsApp Chat
           </a>
           <a href="tel:+9779855085204" onclick="closeBookingModal()" class="btn-call-submit">
-            📞 Direct Call Front Desk
+            📞 Direct Call Front Desk (+977 9855085204)
           </a>
           <button type="button" onclick="closeBookingModal()" style="background:none; border:none; color:#a1a1aa; cursor:pointer; font-size:0.85rem; padding:8px;">Done / Close</button>
         </div>
