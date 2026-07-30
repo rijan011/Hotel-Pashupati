@@ -231,9 +231,15 @@ function openCart() {
         </button>
       </div>
       <div id="cart-items" style="flex-grow:1; overflow-y:auto; padding-right:8px;"></div>
-      <div style="border-top: 1px solid var(--border-gold); padding-top:20px; margin-top:20px;">
-        <div id="orderTotal" style="font-family:var(--font-heading); font-size:1.2rem; font-weight:800; color:var(--color-gold-dark); margin-bottom:16px;">Total: Rs. 0</div>
-        <a href="tel:+9779855085204" onclick="return handleBooking(event, '+9779855085204')" class="btn btn-primary" style="width:100%;">Proceed to Call Order</a>
+      <div id="cart-checkout-section" style="border-top: 1px solid var(--border-gold); padding-top:20px; margin-top:20px;">
+        <div id="orderTotal" style="font-family:var(--font-heading); font-size:1.2rem; font-weight:800; color:var(--color-gold-dark); margin-bottom:14px;">Total: Rs. 0</div>
+        <form id="cartOrderForm" onsubmit="submitFoodOrder(event)" style="display:flex; flex-direction:column; gap:10px;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-gold-dark);">Guest & Delivery Info</div>
+          <input type="text" id="cart-guest-name" required placeholder="Full Name *" style="padding:10px 12px; border-radius:8px; border:1px solid var(--border-gold); background:rgba(0,0,0,0.05); font-size:0.88rem; outline:none;">
+          <input type="tel" id="cart-guest-phone" required placeholder="Phone / WhatsApp *" style="padding:10px 12px; border-radius:8px; border:1px solid var(--border-gold); background:rgba(0,0,0,0.05); font-size:0.88rem; outline:none;">
+          <input type="text" id="cart-table-room" placeholder="Table No / Room No / Special Notes" style="padding:10px 12px; border-radius:8px; border:1px solid var(--border-gold); background:rgba(0,0,0,0.05); font-size:0.88rem; outline:none;">
+          <button type="submit" class="btn btn-primary" style="width:100%; font-weight:700; text-transform:uppercase; margin-top:4px;">Place Food Order</button>
+        </form>
       </div>
     `;
     document.body.appendChild(modal);
@@ -249,6 +255,91 @@ function closeCart() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
   }
+}
+
+async function submitFoodOrder(e) {
+  if (e) e.preventDefault();
+
+  if (!cart || cart.length === 0) {
+    if (typeof showToast === 'function') showToast('Your cart is empty!');
+    return;
+  }
+
+  const name = document.getElementById('cart-guest-name')?.value || 'Guest';
+  const phone = document.getElementById('cart-guest-phone')?.value || '';
+  const tableRoom = document.getElementById('cart-table-room')?.value || 'Dine-in / Direct';
+
+  const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const itemsBreakdown = cart.map(item => `${item.name} (x${item.quantity}) - Rs. ${item.price * item.quantity}`).join(', ');
+  const refId = 'FOOD-' + Math.floor(100000 + Math.random() * 900000);
+
+  const submitBtn = e?.target?.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending Food Order...';
+  }
+
+  // 1. Submit to Formspree
+  const formData = new FormData();
+  formData.append('Order_Type', 'Restaurant Food Order');
+  formData.append('Order_Ref_ID', refId);
+  formData.append('Guest_Name', name);
+  formData.append('Phone_WhatsApp', phone);
+  formData.append('Table_Room_Notes', tableRoom);
+  formData.append('Order_Items', itemsBreakdown);
+  formData.append('Total_Amount', `Rs. ${totalPrice}`);
+
+  try {
+    const res = await fetch('https://formspree.io/f/xlgqkdqj', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (res.ok) {
+      if (typeof showToast === 'function') showToast('Food order sent directly to kitchen!');
+    }
+  } catch (err) {
+    console.error('Food order submission error:', err);
+  }
+
+  // 2. Format WhatsApp redirect text
+  let itemsWhatsAppText = '';
+  cart.forEach(item => {
+    itemsWhatsAppText += `%0A- ${encodeURIComponent(item.name)} (x${item.quantity}) - Rs. ${item.price * item.quantity}`;
+  });
+
+  const message = `*NEW RESTAURANT FOOD ORDER - HOTEL PASHUPATI*%0A` +
+    `*Order Ref:* ${refId}%0A` +
+    `*Customer Name:* ${encodeURIComponent(name)}%0A` +
+    `*Phone:* ${encodeURIComponent(phone)}%0A` +
+    `*Table/Room/Notes:* ${encodeURIComponent(tableRoom)}%0A` +
+    `*ITEMS ORDERED:*${itemsWhatsAppText}%0A%0A` +
+    `*TOTAL AMOUNT:* Rs. ${totalPrice}`;
+
+  // 3. Clear cart
+  cart = [];
+  updateCartDisplay();
+
+  // 4. Update cart modal UI with order confirmation
+  const checkoutSection = document.getElementById('cart-checkout-section');
+  if (checkoutSection) {
+    checkoutSection.innerHTML = `
+      <div style="text-align:center; padding:16px 8px;">
+        <h4 style="font-family:var(--font-heading); font-size:1.2rem; color:var(--color-gold-dark); margin-bottom:8px;">Food Order Submitted!</h4>
+        <p style="font-size:0.88rem; color:var(--color-black); margin-bottom:12px;">Order Code: <strong>${refId}</strong></p>
+        <p style="font-size:0.82rem; color:var(--text-secondary); line-height:1.5; margin-bottom:18px;">Your order has been submitted to the kitchen via Formspree. Opening WhatsApp for direct kitchen confirmation...</p>
+        <a href="https://wa.me/9779855085204?text=${message}" target="_blank" class="btn btn-primary" style="width:100%; display:inline-block; text-decoration:none; margin-bottom:10px; font-weight:700;">
+          Open WhatsApp Confirmation
+        </a>
+        <button onclick="closeCart()" class="btn btn-outline" style="width:100%;">Close Cart</button>
+      </div>
+    `;
+  }
+
+  // 5. Open WhatsApp redirect
+  window.open(`https://wa.me/9779855085204?text=${message}`, '_blank');
 }
 
 // Lightbox Gallery Module
