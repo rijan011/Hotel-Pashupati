@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside-Out Black Camouflage Fade Preloader Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FAF8F5;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Plus Jakarta Sans", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ==========================================================================
+       MAIN LANDING PAGE (Underneath preloader)
+       ========================================================================== */
+    .hero-landing-page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #111111 0%, #1C1C1C 100%);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-landing-page h1 {
+      font-size: 3.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #B0B0B0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-landing-page p {
+      font-size: 1.15rem;
+      color: #A0A0A0;
+      max-width: 540px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .replay-btn {
+      padding: 14px 28px;
+      background: #C5A059;
+      color: #000000;
+      border: none;
+      border-radius: 9999px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .replay-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+    }
+
+    /* ==========================================================================
+       BLACK CAMOUFLAGE BACKDROP LAYER (Z-Index: 9998)
+       ========================================================================== */
+    .black-camouflage-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: #000000;
+      z-index: 9998;
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .black-camouflage-backdrop.fade-out {
+      opacity: 0;
+    }
+
+    /* ==========================================================================
+       INSIDE-OUT SINGLE CONTINUOUS MORPH PRELOADER OVERLAY (Z-Index: 9999)
+       ========================================================================== */
+    .page-loader-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: #F4F4F2;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      /* ONE SINGLE CONTINUOUS INSIDE-OUT CENTER RECTANGLE PORTAL MORPH */
+      clip-path: polygon(
+        0% 0%, 
+        0% 100%, 
+        calc(50vw - 120px) 100%, 
+        calc(50vw - 120px) calc(50vh - 120px), 
+        calc(50vw + 120px) calc(50vh - 120px), 
+        calc(50vw + 120px) calc(50vh + 120px), 
+        calc(50vw - 120px) calc(50vh + 120px), 
+        calc(50vw - 120px) 100%, 
+        100% 100%, 
+        100% 0%
+      );
+      transition: clip-path 0.9s cubic-bezier(0.77, 0, 0.175, 1), 
+                  opacity 0.4s ease 0.6s,
+                  visibility 0.4s ease 0.6s;
+    }
+
+    /* Initial state before 100%: Overlay solid light cover */
+    .page-loader-overlay.solid-cover {
+      clip-path: polygon(
+        0% 0%, 
+        0% 100%, 
+        calc(50vw - 0px) 100%, 
+        calc(50vw - 0px) calc(50vh - 0px), 
+        calc(50vw + 0px) calc(50vh - 0px), 
+        calc(50vw + 0px) calc(50vh + 0px), 
+        calc(50vw - 0px) calc(50vh + 0px), 
+        calc(50vw - 0px) 100%, 
+        100% 100%, 
+        100% 0%
+      );
+    }
+
+    /* Inside-Out Expansion Triggered AT EXACTLY 100% */
+    .page-loader-overlay.inside-out-expand {
+      clip-path: polygon(
+        0% 0%, 
+        0% 100%, 
+        -20vw 100%, 
+        -20vw -20vh, 
+        120vw -20vh, 
+        120vw 120vh, 
+        -20vw 120vh, 
+        -20vw 100%, 
+        100% 100%, 
+        100% 0%
+      );
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Viewfinder Frame Stage */
+    .loader-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .page-loader-overlay.inside-out-expand .loader-stage {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+
+    /* Square Viewfinder Frame (240x240px) */
+    .viewfinder-frame {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .viewfinder-frame.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Base Faint Rectangle Border (1px hairline) */
+    .rect-border-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .rect-bg-border {
+      fill: none;
+      stroke: rgba(58, 58, 58, 0.25);
+      stroke-width: 1;
+    }
+
+    /* Rectangle Surface Loading Line Tracer (0% -> 100%) */
+    .rect-surface-tracer {
+      fill: none;
+      stroke: #2A2A2A;
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      stroke-dasharray: 960;
+      stroke-dashoffset: 960;
+      transition: stroke-dashoffset 0.06s linear;
+      filter: drop-shadow(0 0 2px rgba(42, 42, 42, 0.3));
+    }
+
+    /* Full SVG Temple Logo */
+    .logo-mark-svg {
+      width: 130px;
+      height: 130px;
+      overflow: visible;
+      position: relative;
+      z-index: 3;
+    }
+
+    .temple-full-svg {
+      fill: #2A2A2A;
+      opacity: 0.95;
+    }
+
+    /* Tagline below Viewfinder Frame (HOTEL PASHUPATI) */
+    .loader-tagline {
+      margin-top: 28px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #3A3A3A;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+    }
+
+    .loader-tagline.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* VENDING / SLOT MACHINE PERCENTAGE COUNTER */
+    .slot-counter-wrap {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #3A3A3A;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.3s;
+    }
+
+    .slot-counter-wrap.active {
+      opacity: 1;
+    }
+
+    .slot-digit-col {
+      height: 1.4em;
+      width: 0.72em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slot-reel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.08s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .slot-reel span {
+      height: 1.4em;
+      line-height: 1.4em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .slot-percent {
+      margin-left: 3px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #3A3A3A;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Page Underneath -->
+  <main class="hero-landing-page">
+    <h1>Hotel Pashupati</h1>
+    <p>Experience Chandrapur's premier luxury hotel & fine dining restaurant.</p>
+    <button class="replay-btn" onclick="startInsideOutPreloader()">Replay Black Camouflage Preloader</button>
+  </main>
+
+  <!-- Black Camouflage Fade Backdrop (Z-Index: 9998) -->
+  <div class="black-camouflage-backdrop" id="blackCamouflageBackdrop"></div>
+
+  <!-- Preloader Overlay (Z-Index: 9999) -->
+  <div class="page-loader-overlay solid-cover" id="pageLoaderOverlay">
+    <div class="loader-stage" id="loaderStage">
+      
+      <!-- Square Viewfinder Frame (240x240px) -->
+      <div class="viewfinder-frame" id="viewfinderFrame">
+
+        <!-- Rectangle Perimeter Border & Surface Line Loading Tracer SVG -->
+        <svg class="rect-border-svg" viewBox="0 0 240 240">
+          <rect class="rect-bg-border" x="0.5" y="0.5" width="239" height="239" />
+          <rect class="rect-surface-tracer" id="rectTracer" x="1.2" y="1.2" width="237.6" height="237.6" />
+        </svg>
+
+        <!-- Pashupatinath Full SVG Temple Logo -->
+        <svg class="logo-mark-svg" id="logoMarkSvg" viewBox="0 0 102.5 126">
+          <path class="temple-full-svg" d="M101.5,108.797H86.686V97.916c0-0.553-0.447-1-1-1h-7.468V80.325l7.584-8.885h8.497c0.387,0,0.739-0.223,0.904-0.573  l1.57-3.323c0.019-0.039,0.027-0.081,0.04-0.122c0.01-0.03,0.022-0.059,0.029-0.09c0.02-0.092,0.031-0.185,0.025-0.278  c0-0.003-0.001-0.006-0.002-0.008c-0.007-0.092-0.029-0.182-0.061-0.27c-0.003-0.009-0.003-0.018-0.006-0.027l-1.995-5.036  c-0.083-0.209-0.233-0.384-0.427-0.497L63.41,43.22v-2.354l2.605-2.052c0.24-0.19,0.381-0.479,0.381-0.786v-3.188  c0-0.552-0.447-1-1-1h-0.743l8.664-6.877h1.513c0.24,0,0.474-0.087,0.655-0.245l3.463-3.003c0.02-0.017,0.032-0.041,0.05-0.06  c0.037-0.037,0.071-0.076,0.102-0.12c0.03-0.042,0.055-0.086,0.078-0.132c0.012-0.024,0.031-0.043,0.041-0.069  c0.007-0.017,0.004-0.034,0.01-0.051c0.032-0.092,0.049-0.187,0.053-0.285c0.001-0.024,0.008-0.047,0.007-0.07  c-0.003-0.107-0.021-0.215-0.06-0.319c-0.003-0.008-0.009-0.013-0.012-0.021c-0.011-0.029-0.031-0.052-0.045-0.08  c-0.04-0.079-0.087-0.151-0.145-0.216c-0.026-0.028-0.054-0.052-0.083-0.078c-0.067-0.059-0.141-0.107-0.222-0.146  c-0.021-0.01-0.034-0.028-0.056-0.037l-20.951-8.484c-0.119-0.048-0.246-0.073-0.375-0.073h-0.461  c-0.08-0.89-0.27-1.898-0.613-2.871c-0.002-0.004-0.003-0.009-0.005-0.013c-0.662-1.868-1.895-3.577-4.013-3.991V4.844h1.844  c0.553,0,1-0.448,1-1s-0.447-1-1-1H52.25V1c0-0.552-0.447-1-1-1s-1,0.448-1,1v1.844h-1.844c-0.553,0-1,0.448-1,1s0.447,1,1,1h1.844  v1.755c-2.118,0.414-3.352,2.124-4.013,3.991c-0.002,0.004-0.003,0.008-0.005,0.012c-0.343,0.974-0.534,1.982-0.614,2.872h-0.461  c-0.129,0-0.256,0.025-0.375,0.073l-20.951,8.484c-0.022,0.009-0.035,0.027-0.056,0.037c-0.081,0.039-0.154,0.087-0.222,0.146  c-0.029,0.026-0.057,0.05-0.083,0.078c-0.058,0.064-0.105,0.137-0.145,0.215c-0.014,0.028-0.033,0.051-0.045,0.08  c-0.003,0.008-0.009,0.013-0.012,0.021c-0.039,0.104-0.057,0.212-0.06,0.319c-0.001,0.023,0.006,0.046,0.007,0.07  c0.004,0.098,0.021,0.193,0.053,0.285c0.006,0.017,0.003,0.034,0.01,0.051c0.008,0.019,0.024,0.031,0.033,0.05  c0.038,0.08,0.087,0.152,0.146,0.221c0.023,0.026,0.041,0.055,0.066,0.078c0.01,0.01,0.016,0.022,0.027,0.031l3.463,3.003  c0.182,0.158,0.415,0.245,0.655,0.245h1.513l8.664,6.877h-0.743c-0.553,0-1,0.448-1,1v3.188c0,0.307,0.141,0.596,0.381,0.786  l2.605,2.052v2.354L8.123,61.216c-0.193,0.113-0.344,0.288-0.427,0.497l-1.995,5.036c-0.003,0.009-0.003,0.018-0.006,0.027  c-0.032,0.088-0.055,0.179-0.061,0.272c0,0.002-0.001,0.004-0.001,0.007c-0.006,0.093,0.004,0.186,0.025,0.278  c0.007,0.031,0.019,0.059,0.029,0.089c0.013,0.041,0.021,0.083,0.04,0.122l1.57,3.323c0.165,0.351,0.518,0.573,0.904,0.573h8.497  l7.584,8.885v16.591h-7.468c-0.553,0-1,0.447-1,1v10.881H1c-0.553,0-1,0.447-1,1v10.789V125c0,0.553,0.447,1,1,1h100.5  c0.553,0,1-0.447,1-1v-4.414v-10.789C102.5,109.244,102.053,108.797,101.5,108.797z M2,119.586v-5.161h39.184l-0.924,5.161H2z   M56.506,98.916l0.435,2.428H45.559l0.435-2.428H56.506z M49.091,96.68v-8.818h4.318v8.818H49.091z M45.201,103.344h12.098  l0.524,2.928H44.677L45.201,103.344z M58.182,108.271l0.375,2.096H43.943l0.375-2.096H58.182z M43.585,112.367h15.33l0.529,2.952  H43.056L43.585,112.367z M42.698,117.319h17.104l0.406,2.267H42.292L42.698,117.319z M62.24,119.586l-0.924-5.161H100.5v5.161H62.24  z M100.5,112.425H60.958l-0.292-1.628H100.5V112.425z M60.308,108.797l-1.13-6.312h25.508v6.312H60.308z M84.686,100.485H58.819  l-0.281-1.569h18.68h7.468V100.485z M26.282,84.401h15.274v8.133H26.282V84.401z M26.282,82.401v-1.445h49.936v1.445H26.282z   M32.58,71.44v7.516h-1.645V71.44H32.58z M42.335,71.44v7.516H34.58V71.44H42.335z M45.979,71.44v7.516h-1.645V71.44H45.979z   M54.521,71.44v7.516h-6.541V71.44H54.521z M58.165,71.44v7.516h-1.645V71.44H58.165z M67.92,71.44v7.516h-7.755V71.44H67.92z   M71.564,71.44v7.516H69.92V71.44H71.564z M78.518,71.44l-4.953,5.803V71.44H78.518z M28.936,77.244l-4.953-5.803h4.953V77.244z   M60.943,84.401h15.274v8.133H60.943V84.401z M76.756,78.956h-2.023l6.415-7.516h2.023L76.756,78.956z M41.09,42.795V41.38h20.32  v1.416H41.09z M55.524,44.795l36.638,21.322H10.337l36.638-21.322H55.524z M93.876,64.8L59.5,44.795h2.64l30.932,17.976L93.876,64.8  z M55.067,33.839v-6.877h2.521v6.877H55.067z M51.25,33.839h-1.817v-6.877h3.635v6.877H51.25z M44.912,33.839v-6.877h2.521v6.877  H44.912z M41.607,33.839v-6.877h1.305v6.877H41.607z M39.607,28.898l-2.515-1.936h2.515V28.898z M59.588,26.962h1.305v6.877h-1.305  V26.962z M62.893,26.962h2.515l-2.515,1.936V26.962z M62.893,32.683v-1.261l5.795-4.46H70.1L62.893,32.683z M51.25,8.494  c1.184,0,1.982,0.637,2.527,1.49h-5.061C49.26,9.13,50.061,8.494,51.25,8.494z M47.9,11.984h6.694  c0.136,0.545,0.217,1.066,0.266,1.49h-7.222C47.685,13.05,47.765,12.529,47.9,11.984z M45.352,15.474h11.797l16.013,6.484H29.339  L45.352,15.474z M26.886,23.958h48.729l-1.156,1.003H28.042L26.886,23.958z M33.813,26.962l5.795,4.46v1.261L32.4,26.962H33.813z   M38.104,35.839H51.25h13.146v1.703l-2.333,1.838H40.437l-2.333-1.838V35.839z M9.428,62.771L40.36,44.795H43L8.624,64.8  L9.428,62.771z M8.209,68.117h86.082l-0.626,1.323H8.835L8.209,68.117z M21.352,71.44l6.415,7.516h-2.023l-6.415-7.516H21.352z   M26.282,94.534h16.274c0.553,0,1-0.447,1-1v-9.133h15.387v9.133c0,0.553,0.447,1,1,1h16.274v2.382H55.409V86.861  c0-0.553-0.447-1-1-1h-6.318c-0.553,0-1,0.447-1,1v10.055H26.282V94.534z M25.282,98.916h18.68l-0.281,1.569H17.814v-1.569H25.282z   M17.814,102.485h25.508l-1.13,6.312H17.814V102.485z M41.834,110.797l-0.292,1.628H2v-1.628H41.834z M100.5,124H2v-2.414h98.5V124z"/>
+        </svg>
+
+      </div>
+
+      <!-- Tagline Text (HOTEL PASHUPATI) -->
+      <div class="loader-tagline" id="loaderTagline">HOTEL PASHUPATI</div>
+
+      <!-- Slot Machine Percentage Counter -->
+      <div class="slot-counter-wrap" id="slotCounterWrap">
+        <div class="slot-digit-col">
+          <div class="slot-reel" id="reelHundreds">
+            <span>0</span><span>1</span>
+          </div>
+        </div>
+        <div class="slot-digit-col">
+          <div class="slot-reel" id="reelTens">
+            <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+          </div>
+        </div>
+        <div class="slot-digit-col">
+          <div class="slot-reel" id="reelUnits">
+            <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span>
+          </div>
+        </div>
+        <span class="slot-percent">%</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function easeOutExpo(x) {
+      return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
+    }
+
+    function startInsideOutPreloader() {
+      const overlay = document.getElementById('pageLoaderOverlay');
+      const backdrop = document.getElementById('blackCamouflageBackdrop');
+      const frame = document.getElementById('viewfinderFrame');
+      const tagline = document.getElementById('loaderTagline');
+      const counterWrap = document.getElementById('slotCounterWrap');
+      const rectTracer = document.getElementById('rectTracer');
+
+      const reelHundreds = document.getElementById('reelHundreds');
+      const reelTens = document.getElementById('reelTens');
+      const reelUnits = document.getElementById('reelUnits');
+
+      const totalPerimeter = 960;
+
+      // Reset Timeline
+      overlay.className = 'page-loader-overlay solid-cover';
+      backdrop.classList.remove('fade-out');
+
+      frame.classList.remove('active');
+      tagline.classList.remove('active');
+      counterWrap.classList.remove('active');
+
+      if (rectTracer) rectTracer.style.strokeDashoffset = totalPerimeter;
+
+      reelHundreds.style.transform = 'translateY(0)';
+      reelTens.style.transform = 'translateY(0)';
+      reelUnits.style.transform = 'translateY(0)';
+
+      // t=0.0s - Frame, tagline, slot counter fade in
+      setTimeout(() => {
+        frame.classList.add('active');
+        tagline.classList.add('active');
+        counterWrap.classList.add('active');
+      }, 50);
+
+      // t=0.4s - Surface line tracer draws & slot counter rolls (0 -> 100)
+      setTimeout(() => {
+        let startTime = null;
+        const duration = 2200;
+
+        function updateCounter(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easedProgress = easeOutExpo(progress);
+          const currentVal = Math.floor(easedProgress * 100);
+
+          // Update Surface Line Tracer
+          if (rectTracer) {
+            const offset = totalPerimeter - (totalPerimeter * easedProgress);
+            rectTracer.style.strokeDashoffset = offset;
+          }
+
+          // Slot Reel Dynamics
+          const hundredsDigit = currentVal >= 100 ? 1 : 0;
+          const tensDigit = Math.floor((currentVal % 100) / 10);
+          const unitsDigit = currentVal % 10;
+
+          reelHundreds.style.transform = `translateY(${-hundredsDigit * 1.4}em)`;
+          reelTens.style.transform = `translateY(${-tensDigit * 1.4}em)`;
+          reelUnits.style.transform = `translateY(${-unitsDigit * 1.4}em)`;
+
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            // Lock into 100%
+            reelHundreds.style.transform = 'translateY(-1.4em)';
+            reelTens.style.transform = 'translateY(0em)';
+            reelUnits.style.transform = 'translateY(0em)';
+            if (rectTracer) rectTracer.style.strokeDashoffset = 0;
+
+            // AT EXACTLY 100% -> INSIDE-OUT PORTAL REVEALS BLACK BACKDROP & GRADUALLY FADES OUT!
+            overlay.classList.remove('solid-cover');
+            overlay.classList.add('inside-out-expand');
+
+            // Black Camouflage Gradually Fades Out over the website
+            setTimeout(() => {
+              backdrop.classList.add('fade-out');
+            }, 100);
+          }
+        }
+
+        requestAnimationFrame(updateCounter);
+      }, 400);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      startInsideOutPreloader();
+    });
+  </script>
+
+</body>
+</html>

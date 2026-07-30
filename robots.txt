@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl all important directories
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Disallow crawling of temporary or system files
+Disallow: /temp/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://hotelpashupati.com.np/sitemap.xml
+
+# Crawl delay for polite crawling (optional)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1

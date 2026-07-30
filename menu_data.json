@@ -1,0 +1,2442 @@
+[
+  {
+    "name": "Gorkha Strong 650ml",
+    "category": "BEER",
+    "price": 400
+  },
+  {
+    "name": "Nepal ICE 650ml",
+    "category": "BEER",
+    "price": 400
+  },
+  {
+    "name": "Tuborg Beer 650ml",
+    "category": "BEER",
+    "price": 510
+  },
+  {
+    "name": "Carlsberg Beer 650ml",
+    "category": "BEER",
+    "price": 610
+  },
+  {
+    "name": "Budweiser Beer 650ml",
+    "category": "BEER",
+    "price": 510
+  },
+  {
+    "name": "Apple Cider",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Gorkha Strong Beer",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Budwiser Beer",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Carlsberg Beer",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Tuborg Beer",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Barasinge Beer Pilsner",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Tuborg Beer Can",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Gorkha Strong Beer330ml",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Tuborg Beer 330ml",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Gorkha Pilsner",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Gorkha Craft 330ml",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Gorkha Craft Beer",
+    "category": "BEER",
+    "price": 0
+  },
+  {
+    "name": "Ruslan Vodka 60ml",
+    "category": "VODKA",
+    "price": 250
+  },
+  {
+    "name": "Ruslan Vodka 180ml",
+    "category": "VODKA",
+    "price": 700
+  },
+  {
+    "name": "Ruslan Vodka 375ml",
+    "category": "VODKA",
+    "price": 1400
+  },
+  {
+    "name": "Ruslan Vodka 750ml",
+    "category": "VODKA",
+    "price": 2750
+  },
+  {
+    "name": "8848 Vodka 60ml",
+    "category": "VODKA",
+    "price": 250
+  },
+  {
+    "name": "8848 Vodka 180ml",
+    "category": "VODKA",
+    "price": 700
+  },
+  {
+    "name": "8848 Vodka 375ml",
+    "category": "VODKA",
+    "price": 1400
+  },
+  {
+    "name": "8848 Vodka 750ml",
+    "category": "VODKA",
+    "price": 2750
+  },
+  {
+    "name": "8848 Vodka (various sizes)",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "Ruslan Vodka (various sizes)",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "Absolute vk. (various sizes)",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "8848 45ml",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "Absolute 500ml",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "8848 VOTKA 30ML",
+    "category": "VODKA",
+    "price": 0
+  },
+  {
+    "name": "Blue Diamond 60ml",
+    "category": "GIN",
+    "price": 120
+  },
+  {
+    "name": "Blue Diamond 180ml",
+    "category": "GIN",
+    "price": 325
+  },
+  {
+    "name": "Blue Diamond 375ml",
+    "category": "GIN",
+    "price": 650
+  },
+  {
+    "name": "Blue Diamond 750ml",
+    "category": "GIN",
+    "price": 1300
+  },
+  {
+    "name": "Highlander 60ml",
+    "category": "GIN",
+    "price": 120
+  },
+  {
+    "name": "Highlander 180ml",
+    "category": "GIN",
+    "price": 325
+  },
+  {
+    "name": "Highlander 375ml",
+    "category": "GIN",
+    "price": 650
+  },
+  {
+    "name": "Highlander 750ml",
+    "category": "GIN",
+    "price": 1300
+  },
+  {
+    "name": "Khukuri Rum 60ml",
+    "category": "RUM",
+    "price": 250
+  },
+  {
+    "name": "Khukuri Rum 180ml",
+    "category": "RUM",
+    "price": 750
+  },
+  {
+    "name": "Khukuri Rum 375ml",
+    "category": "RUM",
+    "price": 1400
+  },
+  {
+    "name": "Khukuri Rum 750ml",
+    "category": "RUM",
+    "price": 2750
+  },
+  {
+    "name": "Khukuri Rum (various sizes)",
+    "category": "RUM",
+    "price": 0
+  },
+  {
+    "name": "Big Master Wine",
+    "category": "WINE",
+    "price": 0
+  },
+  {
+    "name": "Dwine Wine",
+    "category": "WINE",
+    "price": 0
+  },
+  {
+    "name": "JP Chenet Wine",
+    "category": "WINE",
+    "price": 0
+  },
+  {
+    "name": "Big Master hap",
+    "category": "WINE",
+    "price": 0
+  },
+  {
+    "name": "Jp Chenet",
+    "category": "WINE",
+    "price": 0
+  },
+  {
+    "name": "Signature Red 60ml",
+    "category": "WHISKY",
+    "price": 300
+  },
+  {
+    "name": "Signature Red 180ml",
+    "category": "WHISKY",
+    "price": 900
+  },
+  {
+    "name": "Signature Red 375ml",
+    "category": "WHISKY",
+    "price": 1750
+  },
+  {
+    "name": "Signature Red 750ml",
+    "category": "WHISKY",
+    "price": 3400
+  },
+  {
+    "name": "Old Durbar 60ml",
+    "category": "WHISKY",
+    "price": 300
+  },
+  {
+    "name": "Old Durbar 180ml",
+    "category": "WHISKY",
+    "price": 900
+  },
+  {
+    "name": "Old Durbar 375ml",
+    "category": "WHISKY",
+    "price": 1750
+  },
+  {
+    "name": "Old Durbar 750ml",
+    "category": "WHISKY",
+    "price": 3400
+  },
+  {
+    "name": "Black Chimney 60ml",
+    "category": "WHISKY",
+    "price": 400
+  },
+  {
+    "name": "Black Chimney 180ml",
+    "category": "WHISKY",
+    "price": 1200
+  },
+  {
+    "name": "Black Chimney 375ml",
+    "category": "WHISKY",
+    "price": 2300
+  },
+  {
+    "name": "Black Chimney 750ml",
+    "category": "WHISKY",
+    "price": 4400
+  },
+  {
+    "name": "Royal Stage 60ml",
+    "category": "WHISKY",
+    "price": 250
+  },
+  {
+    "name": "Royal Stage 180ml",
+    "category": "WHISKY",
+    "price": 700
+  },
+  {
+    "name": "Royal Stage 375ml",
+    "category": "WHISKY",
+    "price": 1400
+  },
+  {
+    "name": "Royal Stage 750ml",
+    "category": "WHISKY",
+    "price": 2750
+  },
+  {
+    "name": "Signature (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Old Durbar (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "OD Black Chimney (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Gorkha & Gun (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Black Labal (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Red Label (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Double Black (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Golden ok (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Black Oak (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Highlander (various sizes)",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Chivas 1L",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Jack Daniels 180ml",
+    "category": "WHISKY",
+    "price": 0
+  },
+  {
+    "name": "Golden Oke 60ml",
+    "category": "OTHER SPIRITS",
+    "price": 120
+  },
+  {
+    "name": "Golden Oke 180ml",
+    "category": "OTHER SPIRITS",
+    "price": 325
+  },
+  {
+    "name": "Golden Oke 375ml",
+    "category": "OTHER SPIRITS",
+    "price": 650
+  },
+  {
+    "name": "Golden Oke 750ml",
+    "category": "OTHER SPIRITS",
+    "price": 1300
+  },
+  {
+    "name": "Chicken Fry",
+    "category": "CHICKEN ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Chicken Roast",
+    "category": "CHICKEN ITEMS",
+    "price": 350
+  },
+  {
+    "name": "Chicken Chilli",
+    "category": "CHICKEN ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Chicken Chilli Boneless",
+    "category": "CHICKEN ITEMS",
+    "price": 350
+  },
+  {
+    "name": "Chicken Fry Crunchy",
+    "category": "CHICKEN ITEMS",
+    "price": 400
+  },
+  {
+    "name": "Chicken Boil Boneless",
+    "category": "CHICKEN ITEMS",
+    "price": 400
+  },
+  {
+    "name": "Chicken Saheko Boneless",
+    "category": "CHICKEN ITEMS",
+    "price": 400
+  },
+  {
+    "name": "Chicken Leg Piece",
+    "category": "CHICKEN ITEMS",
+    "price": 380
+  },
+  {
+    "name": "Chicken Wings",
+    "category": "CHICKEN ITEMS",
+    "price": 350
+  },
+  {
+    "name": "Chicken Lolipop",
+    "category": "CHICKEN ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Chicken Curry",
+    "category": "CHICKEN ITEMS",
+    "price": 250
+  },
+  {
+    "name": "Chicken Masala",
+    "category": "CHICKEN ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Chicken Chilli Bone",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken 65",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Pakoda",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Crunchy",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Ghee Roast",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Kadai",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Handi",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Do Pyaza",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Korma",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Butter Masala",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Tikka Masala",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Biryani",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Fried Rice",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Noodles",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Chicken Soup",
+    "category": "CHICKEN ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Fry",
+    "category": "MUTTON ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Mutton Tawa",
+    "category": "MUTTON ITEMS",
+    "price": 400
+  },
+  {
+    "name": "Mutton Masala",
+    "category": "MUTTON ITEMS",
+    "price": 400
+  },
+  {
+    "name": "Mutton Saheko",
+    "category": "MUTTON ITEMS",
+    "price": 450
+  },
+  {
+    "name": "Mutton Chilli",
+    "category": "MUTTON ITEMS",
+    "price": 450
+  },
+  {
+    "name": "Mutton Chilli Boneless",
+    "category": "MUTTON ITEMS",
+    "price": 450
+  },
+  {
+    "name": "Mutton Boneless",
+    "category": "MUTTON ITEMS",
+    "price": 450
+  },
+  {
+    "name": "Mutton Curry",
+    "category": "MUTTON ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Mutton 65",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Pakoda",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Crunchy",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Ghee Roast",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Kadai",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Handi",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Do Pyaza",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Korma",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Butter Masala",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Tikka Masala",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Biryani",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Fried Rice",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Noodles",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mutton Soup",
+    "category": "MUTTON ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Fry",
+    "category": "FISH ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Fish Boil",
+    "category": "FISH ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Fish Finger",
+    "category": "FISH ITEMS",
+    "price": 350
+  },
+  {
+    "name": "Fish Curry Masala",
+    "category": "FISH ITEMS",
+    "price": 250
+  },
+  {
+    "name": "Fish Fry hap",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Whole",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Curry",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Prawn",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Prawn Fry",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Prawn Curry",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Prawn Masala",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Prawn Chilli",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Pakoda",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Crunchy",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Ghee Roast",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Kadai",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Handi",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Do Pyaza",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Korma",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Butter Masala",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Tikka Masala",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Biryani",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Fried Rice",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Noodles",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Fish Soup",
+    "category": "FISH ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Veg Curry",
+    "category": "VEG ITEMS",
+    "price": 180
+  },
+  {
+    "name": "Mix Veg",
+    "category": "VEG ITEMS",
+    "price": 180
+  },
+  {
+    "name": "Veg Masala",
+    "category": "VEG ITEMS",
+    "price": 200
+  },
+  {
+    "name": "Paneer Butter Masala",
+    "category": "VEG ITEMS",
+    "price": 280
+  },
+  {
+    "name": "Matter Paneer",
+    "category": "VEG ITEMS",
+    "price": 250
+  },
+  {
+    "name": "Mushroom Masala",
+    "category": "VEG ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Vegetable Masala",
+    "category": "VEG ITEMS",
+    "price": 250
+  },
+  {
+    "name": "Mushroom Curry",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Kadai",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Tarkari",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Kaju curry",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Dal Fry",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Plain Dal",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Gundruk Sadako",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Tikka Masala",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Kadai",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Handi",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Do Pyaza",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Korma",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Butter Masala",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Tikka Masala",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Do Pyaza",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Korma",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Veg Biryani",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Veg Fried Rice",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Veg Noodles",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Veg Soup",
+    "category": "VEG ITEMS",
+    "price": 0
+  },
+  {
+    "name": "Egg Curry",
+    "category": "EGG ITEMS",
+    "price": 250
+  },
+  {
+    "name": "Egg Masala",
+    "category": "EGG ITEMS",
+    "price": 300
+  },
+  {
+    "name": "Plain Rice",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Jeera Rice",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Tawa Roti",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Lacha Paratha 1p",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Butter Roti",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Puri 1pc",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Panner Paratha",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Puri Tarkari",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Aalu Paratha",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Added tarkari",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Mutton Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Fish Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Veg Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Chicken Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Paneer Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Mushroom khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Local Chicken Khaja Set",
+    "category": "KHAJA SET",
+    "price": 0
+  },
+  {
+    "name": "Veg Khana/Roti",
+    "category": "KHANA SET",
+    "price": 250
+  },
+  {
+    "name": "Paneer Khana Set",
+    "category": "KHANA SET",
+    "price": 350
+  },
+  {
+    "name": "Chicken Khana",
+    "category": "KHANA SET",
+    "price": 350
+  },
+  {
+    "name": "Mutton Khana",
+    "category": "KHANA SET",
+    "price": 450
+  },
+  {
+    "name": "Fish Khana",
+    "category": "KHANA SET",
+    "price": 450
+  },
+  {
+    "name": "Pashupati Special Khana",
+    "category": "KHANA SET",
+    "price": 500
+  },
+  {
+    "name": "Veg Khana",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Khana",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Paneer Khana",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Local Chicken Khana",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "EGG Khana",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Local Chicken Dhido",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Veg Dhido",
+    "category": "KHANA SET",
+    "price": 0
+  },
+  {
+    "name": "Chiura 1 plate",
+    "category": "RICE & BREAD",
+    "price": 0
+  },
+  {
+    "name": "Bread Toast Jam Butter",
+    "category": "BREAKFAST",
+    "price": 150
+  },
+  {
+    "name": "Bread Toast Jam Omlet Tarkari",
+    "category": "BREAKFAST",
+    "price": 250
+  },
+  {
+    "name": "Bread Jam Chana with Boil Egg",
+    "category": "BREAKFAST",
+    "price": 250
+  },
+  {
+    "name": "Jeri Puri Paneer Tarkari",
+    "category": "BREAKFAST",
+    "price": 250
+  },
+  {
+    "name": "Aloo Paratha",
+    "category": "BREAKFAST",
+    "price": 250
+  },
+  {
+    "name": "Milk Cornflakes",
+    "category": "BREAKFAST",
+    "price": 200
+  },
+  {
+    "name": "Veg Boil",
+    "category": "SNACKS",
+    "price": 180
+  },
+  {
+    "name": "Veg Pakoda",
+    "category": "SNACKS",
+    "price": 175
+  },
+  {
+    "name": "Veg Chilli",
+    "category": "SNACKS",
+    "price": 250
+  },
+  {
+    "name": "Paneer Pakoda",
+    "category": "SNACKS",
+    "price": 300
+  },
+  {
+    "name": "Mushroom Pakoda",
+    "category": "SNACKS",
+    "price": 300
+  },
+  {
+    "name": "Mushroom Chilli",
+    "category": "SNACKS",
+    "price": 350
+  },
+  {
+    "name": "Finger Chips",
+    "category": "SNACKS",
+    "price": 175
+  },
+  {
+    "name": "Finger Chips Chilli",
+    "category": "SNACKS",
+    "price": 225
+  },
+  {
+    "name": "Peanut Sadeko",
+    "category": "SNACKS",
+    "price": 150
+  },
+  {
+    "name": "Chana Sadeko",
+    "category": "SNACKS",
+    "price": 150
+  },
+  {
+    "name": "Chana Chilli Sadeko",
+    "category": "SNACKS",
+    "price": 250
+  },
+  {
+    "name": "Aalu Tilley",
+    "category": "SNACKS",
+    "price": 250
+  },
+  {
+    "name": "Veg Stick",
+    "category": "SNACKS",
+    "price": 250
+  },
+  {
+    "name": "Papad Dry",
+    "category": "SNACKS",
+    "price": 30
+  },
+  {
+    "name": "Papad Fry",
+    "category": "SNACKS",
+    "price": 50
+  },
+  {
+    "name": "Masala Papad",
+    "category": "SNACKS",
+    "price": 80
+  },
+  {
+    "name": "Onion pakauda",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Mix Pakauda",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Veg Pakauda hap",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Chauchau Fry",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Fry",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Chuchu Egg",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Egg Fry 2pic",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Boil Egg Fry",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Kurkure",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Crunchy",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Furan Dhana",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Lasun Fry",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Sweet Carn Fry",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Popcorn",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Paneer Chilli",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Green Salad Nepali",
+    "category": "SALADS",
+    "price": 0
+  },
+  {
+    "name": "Salad hap",
+    "category": "SALADS",
+    "price": 0
+  },
+  {
+    "name": "Aalu Sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Aalu Jeera",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Badam Sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bhatmas Sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Chuchu Sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Chauchau sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Choila",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Sweet Corn Sadeko",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Mustang Aalu",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Kaju Roast",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Plain Peanut",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Kaju 1p",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Kismiss",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Veg Boil Sote",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Onion Ring",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bread Toast Jam/Butter",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bread Toast Omlate",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bread Toast Boil Egg",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bread",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Bread Jam Honey",
+    "category": "SNACKS",
+    "price": 0
+  },
+  {
+    "name": "Veg Kathi Roll",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Chicken Kathi Roll",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Mix Kathi Roll",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Veg Spring Roll",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Paneer Achariya",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Chicken Roll",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Veg Manchurian",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Chicken Manchurian",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Veg Sizzler",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Chicken Sizzler",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Lasun Poleko",
+    "category": "ROLLS & INDO-CHINESE",
+    "price": 0
+  },
+  {
+    "name": "Egg Biryani",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Mix fry Rice",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Chicken Fry Rice",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Veg Fry Rice",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Egg Fry Rice",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Fry Rice",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Biryani",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Paneer Biryani",
+    "category": "FRIED RICE & BIRYANI",
+    "price": 0
+  },
+  {
+    "name": "Chicken Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Egg Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Veg Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Mix Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Veg Chowmin Hap",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Kima Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Paneer Chowmin",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chicken Thuppa",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Veg Thuppa",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Noodle soup",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chicken keema noodle",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Current Noodles",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chicken Current Noodles",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chicken Chowmin Hap",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Veg Pasta",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chicken Pasta",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Chees Pasta",
+    "category": "NOODLES & PASTA",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Chowmin",
+    "category": "CHOWMIN & THUKPA",
+    "price": 120
+  },
+  {
+    "name": "Veg Thukpa",
+    "category": "CHOWMIN & THUKPA",
+    "price": 150
+  },
+  {
+    "name": "Chicken Thukpa",
+    "category": "CHOWMIN & THUKPA",
+    "price": 180
+  },
+  {
+    "name": "Mushroom Thukpa",
+    "category": "CHOWMIN & THUKPA",
+    "price": 180
+  },
+  {
+    "name": "Mix Thukpa",
+    "category": "CHOWMIN & THUKPA",
+    "price": 200
+  },
+  {
+    "name": "Chicken Momo",
+    "category": "MOMO",
+    "price": 150
+  },
+  {
+    "name": "Chicken Fry Momo",
+    "category": "MOMO",
+    "price": 175
+  },
+  {
+    "name": "Chicken C Momo",
+    "category": "MOMO",
+    "price": 190
+  },
+  {
+    "name": "Chicken Jhol Momo",
+    "category": "MOMO",
+    "price": 190
+  },
+  {
+    "name": "Veg Momo",
+    "category": "MOMO",
+    "price": 120
+  },
+  {
+    "name": "Veg Fry Momo",
+    "category": "MOMO",
+    "price": 150
+  },
+  {
+    "name": "Veg C Momo",
+    "category": "MOMO",
+    "price": 180
+  },
+  {
+    "name": "Paneer Momo",
+    "category": "MOMO",
+    "price": 180
+  },
+  {
+    "name": "Paneer Fry Momo",
+    "category": "MOMO",
+    "price": 200
+  },
+  {
+    "name": "Paneer C Momo",
+    "category": "MOMO",
+    "price": 220
+  },
+  {
+    "name": "Paneer Jhol Momo",
+    "category": "MOMO",
+    "price": 220
+  },
+  {
+    "name": "Chicken Crunchy Momo",
+    "category": "MOMO",
+    "price": 225
+  },
+  {
+    "name": "Veg Momo Steam",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Fry",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Jhol",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Sea",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Chilli",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Crunchy",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Sadeko",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Hap",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Platter",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Momo Kothi",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Jhol",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Sea",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Crunchy",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Chilli",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Sadeko",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Hap",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Momo Kothi",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Chicken Sadeko Momo",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Paneer Momo Steam",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Paneer Momo Sadeko",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Paneer Momo Sea",
+    "category": "MOMO",
+    "price": 0
+  },
+  {
+    "name": "Veg Soup",
+    "category": "SOUP",
+    "price": 100
+  },
+  {
+    "name": "Mix Soup",
+    "category": "SOUP",
+    "price": 150
+  },
+  {
+    "name": "Chicken Soup",
+    "category": "SOUP",
+    "price": 150
+  },
+  {
+    "name": "Mushroom Soup",
+    "category": "SOUP",
+    "price": 150
+  },
+  {
+    "name": "Tomato Soup",
+    "category": "SOUP",
+    "price": 120
+  },
+  {
+    "name": "Veg Cream Soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Chicken Cream Soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Hot & Sour Chicken Soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Hot & Sour Veg Soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Chicken Clear soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Veg Clear Soup",
+    "category": "SOUP",
+    "price": 0
+  },
+  {
+    "name": "Omlate",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Boil Egg",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Corn Flakes with milk",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Masala Omlate",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Rasbary",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Dahi",
+    "category": "BREAKFAST",
+    "price": 0
+  },
+  {
+    "name": "Chicken Burger",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Chicken Crunchy Burger Special",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Veg Burger",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Chicken Burger With Cheese",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Veg Burger with cheese",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Egg Burger",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Chicken Sandwich",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Egg Sandwich",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Veg Sandwich",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Sandwich",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Veg Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Mushroom Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Chicken Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Cheese Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Mix Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Bread Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Paneer Pizza",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Extra Cheese",
+    "category": "BAKERY & FAST FOOD",
+    "price": 0
+  },
+  {
+    "name": "Cake 1p",
+    "category": "DESSERTS",
+    "price": 0
+  },
+  {
+    "name": "Pastry 1p",
+    "category": "DESSERTS",
+    "price": 0
+  },
+  {
+    "name": "Birthday Cake",
+    "category": "DESSERTS",
+    "price": 0
+  },
+  {
+    "name": "Ice Cream",
+    "category": "DESSERTS",
+    "price": 0
+  },
+  {
+    "name": "Ice Cream ball",
+    "category": "DESSERTS",
+    "price": 0
+  },
+  {
+    "name": "Black Tea",
+    "category": "HOT DRINKS",
+    "price": 25
+  },
+  {
+    "name": "Milk Tea",
+    "category": "HOT DRINKS",
+    "price": 40
+  },
+  {
+    "name": "Masala Milk Tea",
+    "category": "HOT DRINKS",
+    "price": 50
+  },
+  {
+    "name": "Lemon Tea",
+    "category": "HOT DRINKS",
+    "price": 30
+  },
+  {
+    "name": "Hot Lemon",
+    "category": "HOT DRINKS",
+    "price": 50
+  },
+  {
+    "name": "Hot Lemon with Honey",
+    "category": "HOT DRINKS",
+    "price": 100
+  },
+  {
+    "name": "Black Coffee",
+    "category": "HOT DRINKS",
+    "price": 60
+  },
+  {
+    "name": "Milk Coffee",
+    "category": "HOT DRINKS",
+    "price": 100
+  },
+  {
+    "name": "Hot Lemon with Honey Zinger",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Espresso",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Americano",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Cappuccino",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Doppio Double Shot",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Cafe Latte",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Cafe Mocha",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Coffee Hazelnut",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Coffee Vanilla",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Coffee Caramel",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Cafe Lunga",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "V60 Cafe",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Filter papaer",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Americano Double Shat",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Hot Chocolate",
+    "category": "HOT DRINKS",
+    "price": 0
+  },
+  {
+    "name": "Cold Drink",
+    "category": "DRINKS",
+    "price": 70
+  },
+  {
+    "name": "Badam Drink",
+    "category": "DRINKS",
+    "price": 150
+  },
+  {
+    "name": "Plain Lassi",
+    "category": "DRINKS",
+    "price": 90
+  },
+  {
+    "name": "Banana Lassi",
+    "category": "DRINKS",
+    "price": 120
+  },
+  {
+    "name": "Banana Lassi with Kaju",
+    "category": "DRINKS",
+    "price": 150
+  },
+  {
+    "name": "Real Juice",
+    "category": "DRINKS",
+    "price": 150
+  },
+  {
+    "name": "Apple Cider",
+    "category": "DRINKS",
+    "price": 250
+  },
+  {
+    "name": "Mineral Water",
+    "category": "DRINKS",
+    "price": 30
+  },
+  {
+    "name": "Canned Juice",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Water",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Fresh juice",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Real Juice 1 ltr",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Real Juice Glass",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Rio Jush",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Dew 1 Glass",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Coke 2 Ltrs",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Watermelon Juice",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Mix fresh Jucie",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Apple Jucie",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Milk 1 glass",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "soda leman",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Masala Cock",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Lemanade Sprite",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Soda 250ml",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Red Bull Small 250 ml",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Red Bull 250ml",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Extreme 330ML",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Cold Coffee",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Cold Americano",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Cold Expresso",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Bubble Tea",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Macchiato",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Americano",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Latte",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Cappuccino",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Mocha",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Vanilla Latte",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Peach Ice Tea",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Apple Ice Tea",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Lemon ice tea",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Ice Lemon",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Mint Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Expressio Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Virjin Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blue Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Cocktail Virjin Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blueberry Mojito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Plan Lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Sweet Lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Badam lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Milk Shake",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Vanila Lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Mango Lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Mix Lassi",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Smoothie",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Vanilla Mocha",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Carmel Milk Shake",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Oreo Milk Shake",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Mint Lemonade",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Carmel Macchito",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Blended Mocha",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Frappe Coffee",
+    "category": "COLD BEVERAGES",
+    "price": 0
+  },
+  {
+    "name": "Veg Fry Rice",
+    "category": "FRIED RICE",
+    "price": 150
+  },
+  {
+    "name": "Chicken Fry Rice",
+    "category": "FRIED RICE",
+    "price": 250
+  },
+  {
+    "name": "Mutton Fry Rice",
+    "category": "FRIED RICE",
+    "price": 300
+  },
+  {
+    "name": "Mix Fry Rice",
+    "category": "FRIED RICE",
+    "price": 275
+  },
+  {
+    "name": "Salad",
+    "category": "SALADS",
+    "price": 150
+  },
+  {
+    "name": "Nepali Salad",
+    "category": "SALADS",
+    "price": 150
+  },
+  {
+    "name": "Fruit Salad",
+    "category": "SALADS",
+    "price": 300
+  },
+  {
+    "name": "Surya Churot",
+    "category": "TOBACCO & SMOKING",
+    "price": 50
+  },
+  {
+    "name": "Shikhar Churot",
+    "category": "TOBACCO & SMOKING",
+    "price": 45
+  },
+  {
+    "name": "Hookah",
+    "category": "TOBACCO & SMOKING",
+    "price": 250
+  },
+  {
+    "name": "Birthday Package",
+    "category": "OTHER SERVICES",
+    "price": 1500
+  },
+  {
+    "name": "Birthday Decoration",
+    "category": "OTHER SERVICES",
+    "price": 2000
+  },
+  {
+    "name": "Sparkling Candle",
+    "category": "OTHER SERVICES",
+    "price": 200
+  },
+  {
+    "name": "Room Charge",
+    "category": "OTHER SERVICES",
+    "price": 0
+  },
+  {
+    "name": "Service Charge",
+    "category": "OTHER SERVICES",
+    "price": 0
+  }
+]
