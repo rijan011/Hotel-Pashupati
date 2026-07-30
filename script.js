@@ -341,35 +341,35 @@ function openBookingModal(preselectedCategory = 'ac') {
         <button type="button" class="booking-modal-close" onclick="closeBookingModal()" aria-label="Close Modal">&times;</button>
         <div class="booking-modal-header">
           <h3 id="modal-booking-title">Reserve <span>Hotel Pashupati</span></h3>
-          <p>Chandrapur, Rautahat • Instant Confirmation via WhatsApp or Phone</p>
+          <p>Chandrapur, Rautahat • Direct Reservation</p>
         </div>
         <div id="booking-modal-body">
-          <form id="popupBookingForm" onsubmit="submitBookingModal(event)">
+          <form id="popupBookingForm" action="https://formspree.io/f/xlgqkdqj" method="POST" onsubmit="submitBookingModal(event)">
             <div class="booking-form-row">
               <div class="booking-field-group">
                 <label for="popup-guest-name">Full Name *</label>
-                <input type="text" id="popup-guest-name" required placeholder="e.g. Ram Prasad Sharma">
+                <input type="text" id="popup-guest-name" name="name" required placeholder="e.g. Ram Prasad Sharma">
               </div>
               <div class="booking-field-group">
                 <label for="popup-guest-phone">Phone / WhatsApp *</label>
-                <input type="tel" id="popup-guest-phone" required placeholder="e.g. 9855085204">
+                <input type="tel" id="popup-guest-phone" name="phone" required placeholder="e.g. 9855085204">
               </div>
             </div>
 
             <div class="booking-form-row">
               <div class="booking-field-group">
                 <label for="popup-service-type">Service / Room Category</label>
-                <select id="popup-service-type">
+                <select id="popup-service-type" name="service">
                   <option value="Standard Non-AC Room (Rs. 1,000 / night)">Standard Non-AC Room (Rs. 1,000 / night)</option>
                   <option value="Deluxe AC Room (Rs. 1,600 / night)" selected>Deluxe AC Room (Rs. 1,600 / night)</option>
                   <option value="VIP Executive Suite (Rs. 2,800 / night)">VIP Executive Suite (Rs. 2,800 / night)</option>
-                  <option value="Banquet & Event Hall">Banquet & Event Hall Reservation</option>
-                  <option value="Restaurant Dining Table">Restaurant Dining Table Booking</option>
+                  <option value="Banquet & Event Hall">Banquet & Event Hall</option>
+                  <option value="Restaurant Dining Table">Restaurant Dining Table</option>
                 </select>
               </div>
               <div class="booking-field-group">
                 <label for="popup-guest-count">Guests</label>
-                <select id="popup-guest-count">
+                <select id="popup-guest-count" name="guests">
                   <option value="1 Guest">1 Guest</option>
                   <option value="2 Guests" selected>2 Guests</option>
                   <option value="3 Guests">3 Guests</option>
@@ -380,27 +380,26 @@ function openBookingModal(preselectedCategory = 'ac') {
 
             <div class="booking-form-row">
               <div class="booking-field-group">
-                <label for="popup-checkin">Check-in / Date</label>
-                <input type="date" id="popup-checkin" value="${today}">
+                <label for="popup-checkin">Check-in Date</label>
+                <input type="date" id="popup-checkin" name="check_in" value="${today}">
               </div>
               <div class="booking-field-group">
                 <label for="popup-checkout">Check-out Date</label>
-                <input type="date" id="popup-checkout" value="${tomorrow}">
+                <input type="date" id="popup-checkout" name="check_out" value="${tomorrow}">
               </div>
             </div>
 
             <div class="booking-field-group">
               <label for="popup-notes">Special Requests / Notes</label>
-              <textarea id="popup-notes" rows="2" placeholder="e.g. Expected arrival time, extra bed, dietary requests..."></textarea>
+              <textarea id="popup-notes" name="special_requests" rows="2" placeholder="Arrival time, extra bed, dietary requests..."></textarea>
             </div>
 
             <div class="booking-actions-group">
-              <button type="submit" class="btn-whatsapp-submit">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Confirm Booking via WhatsApp
+              <button type="submit" class="btn-submit-booking">
+                Submit Booking Request
               </button>
               <a href="tel:+9779855085204" onclick="closeBookingModal()" class="btn-call-submit">
-                📞 Direct Call (+977 9855085204)
+                Call Front Desk: +977 9855085204
               </a>
             </div>
           </form>
@@ -425,32 +424,32 @@ function openBookingModal(preselectedCategory = 'ac') {
       tomorrowDate.setDate(tomorrowDate.getDate() + 1);
       const tomorrow = tomorrowDate.toISOString().split('T')[0];
       modalBody.innerHTML = `
-        <form id="popupBookingForm" onsubmit="submitBookingModal(event)">
+        <form id="popupBookingForm" action="https://formspree.io/f/xlgqkdqj" method="POST" onsubmit="submitBookingModal(event)">
           <div class="booking-form-row">
             <div class="booking-field-group">
               <label for="popup-guest-name">Full Name *</label>
-              <input type="text" id="popup-guest-name" required placeholder="e.g. Ram Prasad Sharma">
+              <input type="text" id="popup-guest-name" name="name" required placeholder="e.g. Ram Prasad Sharma">
             </div>
             <div class="booking-field-group">
               <label for="popup-guest-phone">Phone / WhatsApp *</label>
-              <input type="tel" id="popup-guest-phone" required placeholder="e.g. 9855085204">
+              <input type="tel" id="popup-guest-phone" name="phone" required placeholder="e.g. 9855085204">
             </div>
           </div>
 
           <div class="booking-form-row">
             <div class="booking-field-group">
               <label for="popup-service-type">Service / Room Category</label>
-              <select id="popup-service-type">
+              <select id="popup-service-type" name="service">
                 <option value="Standard Non-AC Room (Rs. 1,000 / night)">Standard Non-AC Room (Rs. 1,000 / night)</option>
                 <option value="Deluxe AC Room (Rs. 1,600 / night)" selected>Deluxe AC Room (Rs. 1,600 / night)</option>
                 <option value="VIP Executive Suite (Rs. 2,800 / night)">VIP Executive Suite (Rs. 2,800 / night)</option>
-                <option value="Banquet & Event Hall">Banquet & Event Hall Reservation</option>
-                <option value="Restaurant Dining Table">Restaurant Dining Table Booking</option>
+                <option value="Banquet & Event Hall">Banquet & Event Hall</option>
+                <option value="Restaurant Dining Table">Restaurant Dining Table</option>
               </select>
             </div>
             <div class="booking-field-group">
               <label for="popup-guest-count">Guests</label>
-              <select id="popup-guest-count">
+              <select id="popup-guest-count" name="guests">
                 <option value="1 Guest">1 Guest</option>
                 <option value="2 Guests" selected>2 Guests</option>
                 <option value="3 Guests">3 Guests</option>
@@ -461,27 +460,26 @@ function openBookingModal(preselectedCategory = 'ac') {
 
           <div class="booking-form-row">
             <div class="booking-field-group">
-              <label for="popup-checkin">Check-in / Date</label>
-              <input type="date" id="popup-checkin" value="${today}">
+              <label for="popup-checkin">Check-in Date</label>
+              <input type="date" id="popup-checkin" name="check_in" value="${today}">
             </div>
             <div class="booking-field-group">
               <label for="popup-checkout">Check-out Date</label>
-              <input type="date" id="popup-checkout" value="${tomorrow}">
+              <input type="date" id="popup-checkout" name="check_out" value="${tomorrow}">
             </div>
           </div>
 
           <div class="booking-field-group">
             <label for="popup-notes">Special Requests / Notes</label>
-            <textarea id="popup-notes" rows="2" placeholder="e.g. Expected arrival time, extra bed, dietary requests..."></textarea>
+            <textarea id="popup-notes" name="special_requests" rows="2" placeholder="Arrival time, extra bed, dietary requests..."></textarea>
           </div>
 
           <div class="booking-actions-group">
-            <button type="submit" class="btn-whatsapp-submit">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-              Confirm Booking via WhatsApp
+            <button type="submit" class="btn-submit-booking">
+              Submit Booking Request
             </button>
             <a href="tel:+9779855085204" onclick="closeBookingModal()" class="btn-call-submit">
-              📞 Direct Call (+977 9855085204)
+              Call Front Desk: +977 9855085204
             </a>
           </div>
         </form>
@@ -526,7 +524,7 @@ async function submitBookingModal(e) {
   const submitBtn = e?.target?.querySelector('button[type="submit"]');
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending Booking to Hotel...';
+    submitBtn.innerHTML = 'Sending Booking...';
   }
 
   // Submit to Formspree AJAX endpoint
@@ -576,18 +574,20 @@ async function submitBookingModal(e) {
   if (modalBody) {
     modalBody.innerHTML = `
       <div class="booking-success-card">
-        <div class="booking-success-icon">✓</div>
-        <h4 style="font-family:var(--font-heading); font-size:1.4rem; color:#D4AF37; margin-bottom:8px;">Booking Request Sent!</h4>
+        <div class="booking-success-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h4 style="font-family:var(--font-heading); font-size:1.4rem; color:#D4AF37; margin-bottom:8px;">Booking Submitted Successfully</h4>
         <p style="font-size:0.9rem; color:#d4d4d8; margin-bottom:16px;">Reference Code: <strong style="color:#FFF; background:rgba(212,175,55,0.2); padding:2px 8px; border-radius:4px;">${refId}</strong></p>
-        <p style="font-size:0.86rem; color:#a1a1aa; line-height:1.5; margin-bottom:24px;">Your booking has been received by Hotel Pashupati management. You can also chat directly on WhatsApp to confirm instantly.</p>
+        <p style="font-size:0.86rem; color:#a1a1aa; line-height:1.5; margin-bottom:24px;">Your reservation request has been submitted directly to Hotel Pashupati management via Formspree.</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="https://wa.me/9779855085204?text=${message}" target="_blank" class="btn-whatsapp-submit" style="text-decoration:none;">
-            💬 Open WhatsApp Chat
+            Open WhatsApp Confirmation
           </a>
           <a href="tel:+9779855085204" onclick="closeBookingModal()" class="btn-call-submit">
-            📞 Direct Call Front Desk (+977 9855085204)
+            Call Desk: +977 9855085204
           </a>
-          <button type="button" onclick="closeBookingModal()" style="background:none; border:none; color:#a1a1aa; cursor:pointer; font-size:0.85rem; padding:8px;">Done / Close</button>
+          <button type="button" onclick="closeBookingModal()" style="background:none; border:none; color:#a1a1aa; cursor:pointer; font-size:0.85rem; padding:8px;">Close Window</button>
         </div>
       </div>
     `;
@@ -614,6 +614,12 @@ document.addEventListener('DOMContentLoaded', () => {
       openBookingModal();
     });
   });
+
+  // Set default check-in date for quick booking strip
+  const checkinInput = document.getElementById('checkinDate');
+  if (checkinInput && !checkinInput.value) {
+    checkinInput.value = new Date().toISOString().split('T')[0];
+  }
 
   // Set current year safely
   const yearEls = document.querySelectorAll('#year, .year-current');

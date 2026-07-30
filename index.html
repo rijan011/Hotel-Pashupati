@@ -191,7 +191,7 @@
               <span id="cart-count">0</span>
             </button>
             <a href="#booking" class="btn-nav-cta">Book Now</a>
-            <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+            <button class="mobile-nav-toggle" id="menuToggle" aria-label="Toggle Navigation"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
           </div>
         </nav>
       </div>
@@ -234,7 +234,7 @@
             <div class="booking-form-grid">
               <div class="form-group">
                 <label for="service">Service Type</label>
-                <select id="service" class="form-control">
+                <select id="service" class="form-control" onchange="openBookingModal(this.value)">
                   <option value="room">Hotel Room</option>
                   <option value="hall">Event Hall</option>
                   <option value="dining">Restaurant Dining</option>
@@ -242,20 +242,18 @@
               </div>
               <div class="form-group">
                 <label for="roomType">Category</label>
-                <select id="roomType" class="form-control">
-                  <option value="nonac">Standard Non-AC (Rs. 1000)</option>
-                  <option value="ac">Deluxe AC (Rs. 1400-1800)</option>
-                  <option value="sweet">Executive Suite (Rs. 2000-2800)</option>
+                <select id="roomType" class="form-control" onchange="openBookingModal(this.value)">
+                  <option value="ac">Deluxe AC (Rs. 1,600 / night)</option>
+                  <option value="nonac">Standard Non-AC (Rs. 1,000 / night)</option>
+                  <option value="suite">Executive Suite (Rs. 2,800 / night)</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="roomNo">Select Room</label>
-                <select id="roomNo" class="form-control">
-                  <option value="">Select Room</option>
-                </select>
+                <label for="checkinDate">Check-in Date</label>
+                <input type="date" id="checkinDate" class="form-control" onchange="openBookingModal()">
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary" style="width:100%;">
+                <button type="submit" class="btn-liquid-booking">
                   Instant Booking Request
                 </button>
               </div>
