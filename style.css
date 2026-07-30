@@ -191,6 +191,8 @@ nav {
 .brand-logo-img {
   width: 42px;
   height: 42px;
+  max-width: 42px;
+  max-height: 42px;
   object-fit: contain;
   border-radius: 50%;
   border: 1.5px solid var(--color-gold);
@@ -198,6 +200,8 @@ nav {
   padding: 2px;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
+  overflow: hidden;
+  display: block;
 }
 .brand:hover .brand-logo-img {
   transform: scale(1.08);
