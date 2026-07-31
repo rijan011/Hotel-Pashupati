@@ -2133,11 +2133,21 @@ footer {
   }
 
   section {
-    padding: 48px 0 !important;
+    padding: 44px 0 !important;
   }
 
   .container {
     padding: 0 16px !important;
+  }
+
+  .liquid-glass {
+    padding: 24px 18px !important;
+  }
+
+  .biography-article-card {
+    padding: 20px 16px !important;
+    font-size: 0.96rem !important;
+    line-height: 1.7 !important;
   }
 
   /* 130px top padding ensures header content starts cleanly BELOW the top capsule header */
