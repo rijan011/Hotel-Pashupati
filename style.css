@@ -1868,8 +1868,115 @@ footer {
 }
 
 /* ==========================================================================
-   ULTRA-RESPONSIVE MOBILE MEDIA QUERIES (FULL MOBILE OPTIMIZATION)
+   ULTRA-RESPONSIVE MOBILE NAVIGATION, BACKDROP & MEDIA QUERIES
    ========================================================================== */
+
+/* Navigation Backdrop */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-nav-toggle.active {
+  background: var(--color-gold);
+  color: var(--color-black);
+  border-color: var(--color-gold);
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   PERSISTENT MOBILE STICKY ACTION BAR (<768px)
+   ========================================================================== */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(16, 16, 20, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  padding: 8px 12px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 75px !important;
+  }
+  .mobile-sticky-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+  }
+  input, select, textarea, .form-control {
+    font-size: 16px !important; /* Prevents iOS Safari auto-zoom on focus */
+  }
+}
+
+.mobile-sticky-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.mobile-sticky-btn.btn-call {
+  background: rgba(255, 255, 255, 0.09);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.mobile-sticky-btn.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.mobile-sticky-btn.btn-book {
+  background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+  color: #0A0A0A;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.mobile-sticky-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Breakpoint Media Queries */
 @media (max-width: 1140px) {
   .navlinks {
     display: none;
@@ -1883,25 +1990,28 @@ footer {
     display: flex;
     position: fixed;
     top: 75px;
-    right: 20px;
-    left: 20px;
-    background: rgba(16, 16, 20, 0.96);
+    right: 16px;
+    left: 16px;
+    background: rgba(16, 16, 20, 0.98);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.35);
     border-radius: var(--radius-lg);
     flex-direction: column;
-    padding: 24px;
-    gap: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    gap: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.2);
     z-index: 999;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
   }
 
   .navlinks.active a {
     width: 100%;
     justify-content: flex-start;
-    padding: 12px 18px;
+    padding: 12px 16px;
     font-size: 0.95rem;
+    border-radius: 10px;
   }
 
   .gallery-grid {
@@ -1911,32 +2021,165 @@ footer {
 
 @media (max-width: 900px) {
   .founder-grid,
-  .owner-hero-grid {
+  .owner-hero-grid,
+  .about-hero-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
   .founder-grid > div:first-child,
   .owner-hero-grid > div:first-child {
-    max-width: 360px;
+    max-width: 100%;
     margin: 0 auto;
+  }
+
+  .hero-buttons {
+    flex-wrap: wrap;
   }
 }
 
-@media (max-width: 600px) {
-  header { top: 10px; }
-  .nav-glass-capsule { padding: 8px 14px; width: calc(100% - 20px); }
-  .brand-name { font-size: 0.95rem; }
-  .btn-nav-cta { padding: 7px 14px; font-size: 0.75rem; }
-  .hero-title { font-size: 2.2rem; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr; }
-  .testimonial-card { padding: 20px 10px; }
+@media (max-width: 768px) {
+  section {
+    padding: 50px 0 !important;
+  }
 
-  .founder-grid,
-  .owner-hero-grid {
+  .container {
+    padding: 0 16px !important;
+  }
+
+  .hero-section {
+    padding: 100px 0 50px 0 !important;
+    min-height: auto !important;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-subtitle, .section-subtitle {
+    font-size: 0.95rem !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cards-grid,
+  .room-grid,
+  .menu-grid,
+  .events-grid,
+  .about-grid,
+  .features-grid {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .quick-booking-card {
+    padding: 20px 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .booking-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .category-tabs,
+  .room-filter-container,
+  .menu-category-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .category-tabs::-webkit-scrollbar,
+  .room-filter-container::-webkit-scrollbar,
+  .menu-category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .booking-modal-card {
+    width: 94vw !important;
+    padding: 24px 16px !important;
+    max-height: 85vh !important;
+    border-radius: 16px !important;
+  }
+
+  .cart-modal {
+    max-width: 100% !important;
+    padding: 20px 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    top: 8px;
+  }
+
+  .nav-glass-capsule {
+    padding: 6px 12px;
+    width: calc(100% - 16px);
+  }
+
+  .brand-logo-img {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .brand-name {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-nav-cta {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .mobile-nav-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-title {
+    font-size: 1.85rem !important;
+  }
+
+  .stat-card {
+    padding: 16px 10px !important;
+  }
+
+  .stat-number {
+    font-size: 1.8rem !important;
+  }
+
+  .booking-modal-header h3 {
+    font-size: 1.25rem !important;
   }
 }
 

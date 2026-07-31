@@ -726,12 +726,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Mobile Menu Toggle
+  // Ultra-Responsive Mobile Menu Toggle with Backdrop Overlay & Scroll Lock
   const menuBtn = document.getElementById('menuToggle');
   const navLinks = document.getElementById('primaryNav');
   if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    let backdrop = document.querySelector('.nav-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.className = 'nav-backdrop';
+      document.body.appendChild(backdrop);
+    }
+
+    const toggleMenu = (open) => {
+      const state = open !== undefined ? open : !navLinks.classList.contains('active');
+      navLinks.classList.toggle('active', state);
+      menuBtn.classList.toggle('active', state);
+      backdrop.classList.toggle('active', state);
+      document.body.style.overflow = state ? 'hidden' : '';
+    };
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    backdrop.addEventListener('click', () => toggleMenu(false));
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1140 && navLinks.classList.contains('active')) {
+        toggleMenu(false);
+      }
     });
   }
 
