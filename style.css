@@ -1909,71 +1909,91 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: rgba(16, 16, 20, 0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-top: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-  padding: 8px 12px;
+  width: 100vw;
+  max-width: 100%;
+  background: rgba(14, 14, 18, 0.98) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.4) !important;
+  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.8) !important;
+  z-index: 999999 !important;
+  padding: 8px 10px !important;
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 75px !important;
+    padding-bottom: 78px !important;
   }
   .mobile-sticky-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 8px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    gap: 8px !important;
   }
   input, select, textarea, .form-control {
     font-size: 16px !important; /* Prevents iOS Safari auto-zoom on focus */
   }
 }
 
-.mobile-sticky-btn {
+.mobile-sticky-btn,
+.mobile-sticky-bar a,
+.mobile-sticky-bar button {
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 8px;
-  border-radius: 12px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: all 0.2s ease;
-  min-height: 44px;
-  white-space: nowrap;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 10px 6px !important;
+  border-radius: 12px !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  transition: all 0.2s ease !important;
+  min-height: 44px !important;
+  max-height: 48px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+}
+
+/* Strict icon dimensions to prevent SVG layout explosion */
+.mobile-sticky-bar svg,
+.mobile-sticky-btn svg,
+.mobile-sticky-bar a svg,
+.mobile-sticky-bar button svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
 }
 
 .mobile-sticky-btn.btn-call {
-  background: rgba(255, 255, 255, 0.09);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
 }
 
 .mobile-sticky-btn.btn-whatsapp {
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35) !important;
 }
 
 .mobile-sticky-btn.btn-book {
-  background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
-  color: #0A0A0A;
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-}
-
-.mobile-sticky-btn svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+  background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%) !important;
+  color: #0A0A0A !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35) !important;
 }
 
 /* Breakpoint Media Queries */
