@@ -697,6 +697,20 @@ function handleBooking(event, targetNumber = HOTEL_PHONE, category = 'ac') {
 
 // Document Ready Initialization
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile App Dock Active Tab Highlighter
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const dockTabs = document.querySelectorAll('.mobile-dock-tab[data-page]');
+  dockTabs.forEach(tab => {
+    const page = tab.getAttribute('data-page');
+    if ((currentPath === '' || currentPath === 'index.html') && page === 'index') {
+      tab.classList.add('active');
+    } else if (page && currentPath.includes(page)) {
+      tab.classList.add('active');
+    } else {
+      tab.classList.remove('active');
+    }
+  });
+
   // Attach Popup Booking Modal triggers to all Book Now buttons & links
   const bookNavBtns = document.querySelectorAll('.btn-nav-cta, a[href="#booking"], .open-booking-trigger');
   bookNavBtns.forEach(btn => {
