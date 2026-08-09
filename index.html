@@ -27,10 +27,12 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" /></noscript>
   <link rel="stylesheet" href="style.css" />
 
   <script src="script.js" defer></script>
@@ -164,7 +166,7 @@
       <div class="nav-glass-capsule">
         <nav>
           <a href="index.html" class="brand">
-            <img src="Logo.webp?v=3" alt="Hotel Pashupati Logo" class="brand-logo-img"
+            <img src="Logo.webp?v=3" alt="Hotel Pashupati Logo" width="38" height="38" decoding="async" class="brand-logo-img"
               style="width:38px; height:38px; max-width:38px; max-height:38px; object-fit:contain; border-radius:50%; border:1.5px solid #C5A059; background:rgba(0,0,0,0.4); padding:2px; flex-shrink:0;"
               onerror="this.onerror=null;this.src='logo_web.webp';" />
             <div class="brand-name">Hotel <span>Pashupati</span></div>

@@ -730,15 +730,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEls = document.querySelectorAll('#year, .year-current');
   yearEls.forEach(el => el.textContent = new Date().getFullYear());
 
-  // Header Scroll Effect
+  // Header Scroll Effect (Passive & RAF-Throttled)
   const header = document.querySelector('header');
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 30) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
+  }, { passive: true });
+
+  // Service Worker Registration for Offline Cache & Fast Loading
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.warn('Service Worker registration skipped:', err);
+    });
+  }
 
   // Ultra-Responsive Mobile Menu Toggle with Backdrop Overlay & Scroll Lock
   const menuBtn = document.getElementById('menuToggle');
@@ -885,10 +899,14 @@ function initPageCapsuleLoader() {
     if (counterWrap) counterWrap.classList.add('active');
   }, 50);
 
-  // t=0.4s - Surface loading line travels around rectangle edges & slot counter rolls (0 -> 100)
+  // Smart session check for returning visitors
+  const isRepeatVisit = sessionStorage.getItem('hp_preloader_shown') === 'true';
+  sessionStorage.setItem('hp_preloader_shown', 'true');
+
+  // Surface loading line travels around rectangle edges & slot counter rolls
   setTimeout(() => {
     let startTime = null;
-    const duration = 2200;
+    const duration = isRepeatVisit ? 600 : 2200;
 
     function updateCounter(timestamp) {
       if (!startTime) startTime = timestamp;
@@ -954,8 +972,12 @@ function toggleFaq(button) {
   }
 }
 
-// Dynamic Full Menu Catalog Loader (488 Items)
+// Dynamic Full Menu Catalog Loader with High-Performance Chunking (488 Items)
 let fullMenuData = [];
+let currentFilteredMenu = [];
+let menuRenderPageIndex = 0;
+const MENU_PAGE_SIZE = 24;
+let menuIntersectionObserver = null;
 
 function initMenuPage() {
   const container = document.getElementById('full-menu-grid');
@@ -964,7 +986,7 @@ function initMenuPage() {
   if (typeof FULL_MENU_DATA !== 'undefined' && Array.isArray(FULL_MENU_DATA) && FULL_MENU_DATA.length > 0) {
     fullMenuData = FULL_MENU_DATA;
     renderMenuCategoryPills();
-    renderMenuItems(fullMenuData);
+    filterMenuCategory('ALL');
     return;
   }
 
@@ -973,7 +995,7 @@ function initMenuPage() {
     .then(data => {
       fullMenuData = data;
       renderMenuCategoryPills();
-      renderMenuItems(data);
+      filterMenuCategory('ALL');
     })
     .catch(err => {
       console.error('Error loading menu:', err);
@@ -998,7 +1020,7 @@ function filterMenuCategory(category, btn) {
     btn.classList.add('active');
   }
 
-  const query = (document.getElementById('menu-search-input')?.value || '').toLowerCase();
+  const query = (document.getElementById('menu-search-input')?.value || '').toLowerCase().trim();
   let filtered = fullMenuData;
 
   if (category !== 'ALL') {
@@ -1009,25 +1031,42 @@ function filterMenuCategory(category, btn) {
     filtered = filtered.filter(item => item.name.toLowerCase().includes(query) || item.category.toLowerCase().includes(query));
   }
 
-  renderMenuItems(filtered);
+  currentFilteredMenu = filtered;
+  menuRenderPageIndex = 0;
+  renderMenuItemsChunk(true);
 }
 
+let searchDebounceTimer = null;
 function filterMenuSearch() {
-  const activeBtn = document.querySelector('#menu-category-pills .tab-btn.active');
-  const category = activeBtn ? activeBtn.dataset.cat : 'ALL';
-  filterMenuCategory(category, activeBtn);
+  clearTimeout(searchDebounceTimer);
+  searchDebounceTimer = setTimeout(() => {
+    const activeBtn = document.querySelector('#menu-category-pills .tab-btn.active');
+    const category = activeBtn ? activeBtn.dataset.cat : 'ALL';
+    filterMenuCategory(category, activeBtn);
+  }, 150);
 }
 
-function renderMenuItems(items) {
+function renderMenuItemsChunk(reset = false) {
   const container = document.getElementById('full-menu-grid');
   if (!container) return;
 
-  if (!items.length) {
+  if (reset) {
+    container.innerHTML = '';
+    menuRenderPageIndex = 0;
+  }
+
+  if (!currentFilteredMenu.length) {
     container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--text-muted);">No matching menu items found.</div>';
     return;
   }
 
-  container.innerHTML = items.map(item => {
+  const start = menuRenderPageIndex * MENU_PAGE_SIZE;
+  const end = Math.min(start + MENU_PAGE_SIZE, currentFilteredMenu.length);
+  const chunk = currentFilteredMenu.slice(start, end);
+
+  if (chunk.length === 0) return;
+
+  const html = chunk.map(item => {
     const priceDisplay = item.price > 0 ? `Rs. ${item.price}` : 'Market Price';
     const escapedName = item.name.replace(/'/g, "\\'");
     return `
@@ -1050,6 +1089,36 @@ function renderMenuItems(items) {
       </div>
     `;
   }).join('');
+
+  const oldSentinel = document.getElementById('menu-sentinel');
+  if (oldSentinel) oldSentinel.remove();
+
+  const tempWrap = document.createElement('div');
+  tempWrap.innerHTML = html;
+  while (tempWrap.firstChild) {
+    container.appendChild(tempWrap.firstChild);
+  }
+
+  menuRenderPageIndex++;
+
+  if (end < currentFilteredMenu.length) {
+    const sentinel = document.createElement('div');
+    sentinel.id = 'menu-sentinel';
+    sentinel.style.cssText = 'grid-column:1/-1; text-align:center; padding:20px; font-size:0.88rem; color:var(--color-gold-dark); font-weight:600; cursor:pointer;';
+    sentinel.innerHTML = 'Showing ' + end + ' of ' + currentFilteredMenu.length + ' items (Scroll to load more...)';
+    sentinel.onclick = () => renderMenuItemsChunk(false);
+    container.appendChild(sentinel);
+
+    if ('IntersectionObserver' in window) {
+      if (menuIntersectionObserver) menuIntersectionObserver.disconnect();
+      menuIntersectionObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          renderMenuItemsChunk(false);
+        }
+      }, { rootMargin: '200px' });
+      menuIntersectionObserver.observe(sentinel);
+    }
+  }
 }
 
 function slideMenuTrack(direction, btn) {
