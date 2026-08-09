@@ -2587,8 +2587,8 @@ footer {
 
 .featured-hotel-badge {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 20px;
+  right: 24px;
   background: linear-gradient(135deg, #C5A059 0%, #9E7B35 100%);
   color: #FFFFFF;
   font-size: 0.78rem;
@@ -2599,6 +2599,7 @@ footer {
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4);
   z-index: 2;
+  white-space: nowrap;
 }
 
 .featured-hotel-inner {
@@ -2606,6 +2607,20 @@ footer {
   grid-template-columns: 340px 1fr;
   gap: 28px;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .featured-hotel-badge {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 12px;
+  }
+  .hotel-rank-title {
+    padding-right: 0 !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2659,6 +2674,7 @@ footer {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  padding-right: 260px;
 }
 
 .rank-number-tag {
