@@ -2749,8 +2749,92 @@ footer {
 
 .featured-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+}
+
+/* 60-30-10 Compliant Luxury Action Buttons */
+.btn-gold-action {
+  background: linear-gradient(135deg, #C5A059 0%, #9E7B35 100%);
+  color: #FFFFFF !important;
+  border: 1px solid #C5A059;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.btn-gold-action:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #B38B34 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+  color: #FFFFFF !important;
+}
+
+.btn-gold-glass {
+  background: rgba(197, 160, 89, 0.12);
+  border: 1.5px solid var(--color-gold);
+  color: #E8D3A2 !important;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.btn-gold-glass:hover {
+  background: var(--color-gold);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.35);
+}
+
+.featured-hotel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.featured-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotel-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotel-amenities-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotel-item-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hotel-item-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* Other Hotels Grid */
