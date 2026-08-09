@@ -697,14 +697,35 @@ nav {
 .stat-card {
   padding: 32px 24px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  box-sizing: border-box;
 }
 .stat-number {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 4vw, 3rem);
   font-weight: 800;
   color: var(--color-gold-dark);
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  min-width: 140px;
+  height: 52px;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+.stat-number.counter-done {
+  animation: goldPulseFinish 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes goldPulseFinish {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); text-shadow: 0 0 20px rgba(197, 160, 89, 0.5); }
+  100% { transform: scale(1); }
 }
 .stat-label {
   font-size: 0.88rem;
@@ -1145,18 +1166,34 @@ img[src*="Surendra"],
   flex-wrap: wrap;
 }
 
+/* Verified Google Business Reviews Section (60-30-10 Luxury Theme) */
+#reviews {
+  background: var(--bg-secondary);
+  position: relative;
+  padding: 80px 0;
+}
+
+.review-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
 .google-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
+  padding: 8px 20px;
+  border-radius: 30px;
   background: #FFFFFF;
-  border: 1px solid var(--border-gold);
+  border: 1.5px solid var(--border-gold);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--color-black);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
 }
 
 .stars-rating-summary {
@@ -1166,12 +1203,32 @@ img[src*="Surendra"],
   filter: drop-shadow(0 2px 4px rgba(255, 184, 0, 0.3));
 }
 
-/* Testimonial Carousel Container */
+/* Centered Half Line Divider */
+.half-line-divider {
+  width: 240px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 50%, transparent 100%);
+  margin: 24px auto;
+  opacity: 0.7;
+}
+
+/* Flanked Review Container (< review >) */
+.review-flank-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .testimonial-carousel {
   position: relative;
-  max-width: 820px;
+  flex-grow: 1;
+  max-width: 780px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
   overflow: hidden;
   box-sizing: border-box;
   padding: 10px 0;
@@ -1188,7 +1245,7 @@ img[src*="Surendra"],
   min-width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 12px 20px;
+  padding: 8px 16px;
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
@@ -1207,23 +1264,23 @@ img[src*="Surendra"],
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .review-avatar {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #111111 0%, #222226 100%);
-  color: var(--color-gold);
-  font-family: var(--font-accent);
+  background: linear-gradient(135deg, #111111 0%, #2A251B 100%);
+  color: #E8D3A2;
+  font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid var(--color-gold);
-  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.25);
+  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.3);
   flex-shrink: 0;
 }
 
@@ -1232,9 +1289,9 @@ img[src*="Surendra"],
 }
 
 .review-author {
-  font-family: var(--font-accent);
-  font-weight: 800;
-  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
   color: var(--color-black);
   letter-spacing: -0.01em;
   margin-bottom: 2px;
@@ -1243,7 +1300,7 @@ img[src*="Surendra"],
 .review-badge-tag {
   font-size: 0.82rem;
   color: var(--color-gold-dark);
-  font-weight: 600;
+  font-weight: 700;
   font-family: var(--font-body);
 }
 
@@ -1251,8 +1308,8 @@ img[src*="Surendra"],
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .star-icons {
@@ -1267,10 +1324,10 @@ img[src*="Surendra"],
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.02rem, 1.7vw, 1.18rem);
   color: #2D2D32;
-  line-height: 1.7;
-  margin-bottom: 14px;
+  line-height: 1.75;
+  margin-bottom: 16px;
   font-style: normal;
-  max-width: 740px;
+  max-width: 720px;
   font-weight: 500;
   letter-spacing: -0.01em;
   position: relative;
@@ -1279,10 +1336,10 @@ img[src*="Surendra"],
 .review-text::before {
   content: '“';
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--color-gold);
   line-height: 0;
-  vertical-align: -0.35rem;
+  vertical-align: -0.4rem;
   margin-right: 4px;
   font-weight: 700;
 }
@@ -1290,10 +1347,10 @@ img[src*="Surendra"],
 .review-text::after {
   content: '”';
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--color-gold);
   line-height: 0;
-  vertical-align: -0.35rem;
+  vertical-align: -0.4rem;
   margin-left: 4px;
   font-weight: 700;
 }
@@ -1305,10 +1362,10 @@ img[src*="Surendra"],
   align-items: center;
   justify-content: center;
   gap: 18px;
-  border-top: 1px solid rgba(197, 160, 89, 0.25);
-  padding-top: 12px;
+  border-top: 1px dashed rgba(197, 160, 89, 0.3);
+  padding-top: 14px;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   font-family: var(--font-body);
 }
 
@@ -1325,26 +1382,62 @@ img[src*="Surendra"],
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-top: 16px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin-top: 24px;
+  margin-bottom: 20px;
 }
 
 .testimonial-nav-btn {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 1px solid var(--border-gold, #C5A059);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid var(--color-gold);
+  background: rgba(197, 160, 89, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: var(--color-black, #111111);
+  color: var(--color-gold-dark);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+}
+
+.testimonial-nav-btn:hover {
+  background: var(--color-gold);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.38);
+}
+
+.testimonial-nav-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.2;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.testimonial-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-dots .dot.active {
+  width: 24px;
+  border-radius: 12px;
+  background: var(--color-gold);
 }
 
 .testimonial-nav-btn:hover {
@@ -1912,11 +2005,11 @@ footer {
   width: 100vw;
   max-width: 100%;
   height: 64px;
-  background: rgba(14, 14, 18, 0.98) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.35) !important;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.85) !important;
+  background: #0E0E12 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: 1.5px solid var(--border-gold) !important;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.95) !important;
   z-index: 999999 !important;
   align-items: center;
   justify-content: space-around;
@@ -1926,7 +2019,10 @@ footer {
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 74px !important;
+    padding-bottom: 0 !important;
+  }
+  footer {
+    padding-bottom: 96px !important;
   }
   .mobile-app-dock {
     display: flex !important;
@@ -1997,26 +2093,41 @@ footer {
   stroke: #D4AF37 !important;
 }
 
-/* Bottom Sheet Styling for Booking Modal on Mobile */
+/* Full Mobile Screen Styling for Booking Modal */
 @media (max-width: 768px) {
   .booking-modal-overlay {
-    align-items: flex-end !important;
+    align-items: stretch !important;
     padding: 0 !important;
+    z-index: 10000000 !important; /* Higher than mobile bottom dock bar */
   }
 
   .booking-modal-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    max-height: 90vh !important;
-    border-radius: 24px 24px 0 0 !important;
-    padding: 22px 18px 30px 18px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    padding: 24px 20px 60px 20px !important;
     margin: 0 !important;
     box-sizing: border-box !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
-    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.9) !important;
+    border: none !important;
+    box-shadow: none !important;
     overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .booking-modal-card::-webkit-scrollbar {
+    width: 4px !important;
+  }
+
+  .booking-modal-card::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  .booking-modal-card::-webkit-scrollbar-thumb {
+    background: var(--color-gold) !important;
+    border-radius: 4px !important;
   }
 
   /* Sheet Drag Handle Indicator */
@@ -2057,44 +2168,52 @@ footer {
   }
 
   .navlinks.active {
-    display: flex;
-    position: fixed;
-    top: 75px;
-    right: 14px;
-    left: 14px;
-    background: rgba(14, 14, 18, 0.98);
-    backdrop-filter: blur(32px);
-    -webkit-backdrop-filter: blur(32px);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    border-radius: 20px;
-    flex-direction: column;
-    padding: 22px 18px;
-    gap: 10px;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.22);
-    z-index: 999;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+    display: flex !important;
+    position: fixed !important;
+    top: 75px !important;
+    right: 18px !important;
+    left: 18px !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    background: rgba(14, 14, 18, 0.98) !important;
+    backdrop-filter: blur(32px) !important;
+    -webkit-backdrop-filter: blur(32px) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
+    border-radius: 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 20px 16px !important;
+    gap: 8px !important;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.22) !important;
+    z-index: 99999 !important;
+    max-height: calc(100vh - 100px) !important;
+    overflow-y: auto !important;
   }
 
   .navlinks.active a {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 13px 18px;
-    font-size: 0.98rem;
-    font-weight: 600;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #E4E4E7;
-    transition: all 0.25s ease;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 18px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #E4E4E7 !important;
+    box-sizing: border-box !important;
+    transition: all 0.25s ease !important;
   }
 
   .navlinks.active a:hover,
   .navlinks.active a.active {
-    background: rgba(212, 175, 55, 0.15);
-    color: #D4AF37;
-    border-color: rgba(212, 175, 55, 0.4);
-    padding-left: 22px;
+    background: rgba(212, 175, 55, 0.16) !important;
+    color: #D4AF37 !important;
+    border-color: rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.25) !important;
   }
 
   .gallery-grid {
@@ -2129,7 +2248,7 @@ footer {
   }
 
   body {
-    padding-bottom: 110px !important; /* Generous clearance for 64px bottom app dock */
+    padding-bottom: 0 !important;
   }
 
   section {
@@ -2150,7 +2269,8 @@ footer {
     line-height: 1.7 !important;
   }
 
-  /* 130px top padding ensures header content starts cleanly BELOW the top capsule header */
+  /* Quiet Luxury Ambient Mobile Body Background Environment */
+  .hero,
   .hero-section,
   .page-header,
   .about-hero,
@@ -2159,9 +2279,41 @@ footer {
   .menu-hero,
   .events-hero,
   .owner-hero {
+    position: relative;
     padding-top: 130px !important;
-    min-height: auto !important;
+    padding-bottom: 70px !important;
+    min-height: 100dvh !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
     text-align: center;
+    box-sizing: border-box !important;
+    background-color: #0A0A0E !important;
+    background-image: 
+      radial-gradient(ellipse 85% 55% at 50% 18%, rgba(197, 160, 89, 0.09) 0%, rgba(158, 123, 53, 0.03) 45%, transparent 75%),
+      radial-gradient(ellipse 90% 60% at 50% 75%, rgba(197, 160, 89, 0.07) 0%, rgba(14, 14, 20, 0) 70%),
+      radial-gradient(rgba(197, 160, 89, 0.04) 1px, transparent 0) !important;
+    background-size: 100% 100%, 100% 100%, 32px 32px !important;
+  }
+
+  /* Integrated Ambient Booking Card Zone */
+  .mobile-booking-card-zone,
+  .booking-card-integrated {
+    margin-top: 44px;
+    margin-bottom: 32px;
+    padding: 32px 24px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgba(22, 22, 28, 0.85) 0%, rgba(14, 14, 18, 0.92) 100%);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(197, 160, 89, 0.25);
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.07),
+      0 25px 60px rgba(0, 0, 0, 0.6),
+      0 0 35px rgba(197, 160, 89, 0.04);
+    position: relative;
+    overflow: hidden;
   }
 
   .hero-title {
@@ -2260,13 +2412,6 @@ footer {
     border-radius: 9999px !important;
   }
 
-  .booking-modal-card {
-    width: 94vw !important;
-    padding: 24px 16px !important;
-    max-height: 85vh !important;
-    border-radius: 18px !important;
-  }
-
   .cart-modal {
     max-width: 100% !important;
     padding: 20px 16px !important;
@@ -2328,7 +2473,7 @@ footer {
   background: rgba(10, 10, 12, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  z-index: 99999;
+  z-index: 10000000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2606,7 +2751,7 @@ footer {
   display: grid;
   grid-template-columns: 340px 1fr;
   gap: 28px;
-  align-items: center;
+  align-items: stretch;
 }
 
 @media (max-width: 1024px) {
@@ -2627,13 +2772,17 @@ footer {
   .featured-hotel-inner {
     grid-template-columns: 1fr;
   }
+  .featured-hotel-img-box {
+    height: 320px !important;
+  }
 }
 
 .featured-hotel-img-box {
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  height: 260px;
+  height: 100%;
+  min-height: 280px;
   border: 1px solid var(--border-gold);
 }
 
@@ -2641,6 +2790,7 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.5s ease;
 }
 
@@ -2861,6 +3011,66 @@ footer {
   transform: translateY(-4px);
   border-color: var(--color-gold);
   box-shadow: 0 12px 30px rgba(197, 160, 89, 0.18);
+}
+
+/* Luxury Hotel Comparison Table (60-30-10 Gold Glass Theme) */
+.hotel-comparison-table-wrapper {
+  margin-top: 36px;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-gold);
+  background: var(--bg-primary);
+  box-shadow: 0 10px 30px rgba(197, 160, 89, 0.1);
+}
+
+.hotel-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+  min-width: 680px;
+}
+
+.hotel-comparison-table th {
+  background: linear-gradient(135deg, rgba(20, 20, 26, 0.95) 0%, rgba(32, 28, 20, 0.95) 100%);
+  color: #E8D3A2;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 16px 20px;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.hotel-comparison-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  color: var(--color-black);
+  vertical-align: middle;
+}
+
+.hotel-comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.hotel-comparison-table tr:nth-child(even) {
+  background: rgba(197, 160, 89, 0.04);
+}
+
+.hotel-comparison-table tr.highlight-pashupati {
+  background: rgba(197, 160, 89, 0.12);
+  font-weight: 600;
+}
+
+.table-rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-gold);
+  color: #000;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
 }
 
 .hotel-item-header {

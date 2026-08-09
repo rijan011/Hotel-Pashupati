@@ -808,6 +808,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   updateCartDisplay();
   initMenuPage();
+  initStatCounters();
 
   // Room Type Listener
   const roomTypeSel = document.getElementById('roomType');
@@ -816,6 +817,48 @@ document.addEventListener('DOMContentLoaded', () => {
     roomTypeSel.addEventListener('change', (e) => populateRoomNo(e.target.value));
   }
 });
+
+// Animated Number Counter with Fixed Position Layout
+function initStatCounters() {
+  const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+  if (!statNumbers.length) return;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1800; // 1.8s
+    const startTime = performance.now();
+
+    const updateValue = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(easeProgress * target);
+
+      el.textContent = currentValue + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateValue);
+      } else {
+        el.textContent = target + suffix;
+        el.classList.add('counter-done');
+      }
+    };
+
+    requestAnimationFrame(updateValue);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('has-animated')) {
+        entry.target.classList.add('has-animated');
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  statNumbers.forEach(el => observer.observe(el));
+}
 
 // Minimalist Temple Full SVG + Slot Counter Hyper-Zoom Preloader (Main Page Index.html Only)
 function initPageCapsuleLoader() {
