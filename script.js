@@ -791,17 +791,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Soft Clean Scroll Reveal Observer
-  const revealElements = document.querySelectorAll('.reveal, .room-card, .stat-card, .menu-item-card, .gallery-item');
+  // Ultra-Smooth Silk Scroll Reveal Observer Engine
+  const revealElements = document.querySelectorAll('.reveal, .room-card, .stat-card, .menu-item-card, .gallery-item, .card, .feature-card, .review-card, .blog-card, .event-card, .faq-item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Calculate staggered delay dynamically for siblings within grid/flex containers
+        const parent = entry.target.parentElement;
+        if (parent && (
+          parent.classList.contains('cards-grid') || 
+          parent.classList.contains('room-grid') || 
+          parent.classList.contains('gallery-grid') || 
+          parent.classList.contains('stats-grid') ||
+          parent.classList.contains('features-grid') ||
+          parent.id === 'full-menu-grid'
+        )) {
+          const siblings = Array.from(parent.children);
+          const index = siblings.indexOf(entry.target);
+          if (index >= 0 && !entry.target.style.transitionDelay) {
+            entry.target.style.transitionDelay = `${(index % 6) * 0.08}s`;
+          }
+        }
         entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-  revealElements.forEach(el => observer.observe(el));
+  revealElements.forEach(el => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+    }
+    observer.observe(el);
+  });
 
   // Initialize Modules
   initPageCapsuleLoader();
@@ -969,17 +991,17 @@ function initPageCapsuleLoader() {
       const tensDigit = Math.floor((currentVal % 100) / 10);
       const unitsDigit = currentVal % 10;
 
-      if (reelHundreds) reelHundreds.style.transform = `translateY(${-hundredsDigit * 1.6}em)`;
-      if (reelTens) reelTens.style.transform = `translateY(${-tensDigit * 1.6}em)`;
-      if (reelUnits) reelUnits.style.transform = `translateY(${-unitsDigit * 1.6}em)`;
+      if (reelHundreds) reelHundreds.style.transform = `translate3d(0, ${-hundredsDigit * 1.6}em, 0)`;
+      if (reelTens) reelTens.style.transform = `translate3d(0, ${-tensDigit * 1.6}em, 0)`;
+      if (reelUnits) reelUnits.style.transform = `translate3d(0, ${-unitsDigit * 1.6}em, 0)`;
 
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
         // Lock into EXACTLY 100%
-        if (reelHundreds) reelHundreds.style.transform = 'translateY(-1.6em)';
-        if (reelTens) reelTens.style.transform = 'translateY(0em)';
-        if (reelUnits) reelUnits.style.transform = 'translateY(0em)';
+        if (reelHundreds) reelHundreds.style.transform = 'translate3d(0, -1.6em, 0)';
+        if (reelTens) reelTens.style.transform = 'translate3d(0, 0em, 0)';
+        if (reelUnits) reelUnits.style.transform = 'translate3d(0, 0em, 0)';
         if (rectTracer) rectTracer.style.strokeDashoffset = 0;
 
         // AT EXACTLY 100% -> INSIDE-OUT PORTAL REVEALS BLACK BACKDROP & GRADUALLY FADES OUT!

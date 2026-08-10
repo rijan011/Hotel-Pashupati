@@ -1,13 +1,17 @@
-const CACHE_NAME = 'hotel-pashupati-v1';
+const CACHE_NAME = 'hotel-pashupati-v2';
 const STATIC_ASSETS = [
   './',
   'index.html',
   'about.html',
+  'blog.html',
   'contact.html',
   'events.html',
+  'gallery.html',
+  'location.html',
   'menu.html',
   'owner.html',
   'restaurant.html',
+  'reviews.html',
   'rooms.html',
   'style.css',
   'script.js',
