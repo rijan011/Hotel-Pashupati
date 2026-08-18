@@ -79,6 +79,7 @@ html {
 }
 
 body {
+  scroll-behavior: smooth;
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
@@ -2192,6 +2193,10 @@ footer {
   justify-content: space-around;
   padding: 0 4px;
   box-sizing: border-box;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -2207,6 +2212,13 @@ footer {
   input, select, textarea, .form-control {
     font-size: 16px !important; /* Prevents iOS Safari auto-zoom on focus */
   }
+}
+
+.mobile-app-dock.visible,
+body.page-loaded .mobile-app-dock {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .mobile-dock-tab {

@@ -697,7 +697,7 @@ function handleBooking(event, targetNumber = HOTEL_PHONE, category = 'ac') {
 
 // Document Ready Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile App Dock Active Tab Highlighter
+  // Mobile App Dock Active Tab Highlighter & Visibility Controller
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const dockTabs = document.querySelectorAll('.mobile-dock-tab[data-page]');
   dockTabs.forEach(tab => {
@@ -710,6 +710,28 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.remove('active');
     }
   });
+
+  const revealMobileDock = () => {
+    document.body.classList.add('page-loaded');
+    const mobileDock = document.querySelector('.mobile-app-dock');
+    if (mobileDock) mobileDock.classList.add('visible');
+  };
+
+  const normPath = window.location.pathname.toLowerCase();
+  const isMainPage = normPath.endsWith('/') || normPath.endsWith('/index.html') || normPath === '' || normPath.endsWith('hotel-pashupati-main/');
+
+  if (!isMainPage) {
+    if (document.readyState === 'complete') {
+      revealMobileDock();
+    } else {
+      window.addEventListener('load', revealMobileDock);
+      setTimeout(revealMobileDock, 200);
+    }
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(revealMobileDock, 2800);
+    });
+  }
 
   // Attach Popup Booking Modal triggers to all Book Now buttons & links
   const bookNavBtns = document.querySelectorAll('.btn-nav-cta, a[href="#booking"], .open-booking-trigger');
@@ -1015,6 +1037,13 @@ function initPageCapsuleLoader() {
             camouflageBackdrop.classList.add('fade-out');
           }, 100);
         }
+
+        // Reveal mobile app dock after preloader portal expands
+        setTimeout(() => {
+          document.body.classList.add('page-loaded');
+          const mobileDock = document.querySelector('.mobile-app-dock');
+          if (mobileDock) mobileDock.classList.add('visible');
+        }, 350);
       }
     }
 
